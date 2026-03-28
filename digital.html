@@ -1,29 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数智体验</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="p-10">
+<body class="p-10 bg-gray-100">
 
     <h1 class="text-3xl font-bold mb-6">数智体验场</h1>
 
-    <!-- 360展示 -->
-    <iframe width="100%" height="500" src="https://momento360.com/e/u/xxxx">
-    </iframe>
+    <p class="mb-8 leading-relaxed">
+        数智体验模块致力于将数字技术与传统武术文化相结合，
+        探索沉浸式、互动式的文化体验方式。
+        在信息技术快速发展的背景下，
+        传统文化的传播方式正在发生深刻变化，
+        从单向展示转向多维互动。
+        本模块通过引入虚拟现实、全景展示与交互设计，
+        使用户能够以更加直观和参与性的方式接触武术文化，
+        从而提升体验深度与传播效果。
+    </p>
 
-    <!-- 简单互动 -->
-    <button onclick="showInfo()" class="bg-blue-500 text-white p-2 mt-6">
-        点击查看兵器介绍
-    </button>
+    <div class="space-y-6">
 
-    <p id="info" class="mt-4"></p>
+        <div class="bg-white p-6 rounded shadow">
+            <h2 class="text-xl font-bold mb-2">360°全景体验</h2>
+            <p class="leading-relaxed mb-4">
+                通过嵌入360度全景展示，
+                用户可以在虚拟空间中自由观察武术动作与场景布局，
+                获得接近真实环境的沉浸式体验。
+                这一技术不仅增强了视觉表现力，
+                也为远程学习与展示提供了新的可能性。
+            </p>
+
+            <iframe width="100%" height="400" src="https://momento360.com/e/u/xxxx">
+            </iframe>
+        </div>
+
+        <div class="bg-white p-6 rounded shadow">
+            <h2 class="text-xl font-bold mb-2">互动式兵器展示</h2>
+            <p class="leading-relaxed mb-4">
+                通过简单的交互设计，
+                用户可以点击不同兵器，
+                查看其历史背景与使用方式。
+                这一形式将静态知识转化为动态体验，
+                增强学习的趣味性与参与感。
+            </p>
+
+            <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2">
+                长枪
+            </button>
+
+            <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2">
+                长剑
+            </button>
+
+            <p id="info" class="mt-4 text-gray-700"></p>
+        </div>
+
+    </div>
 
     <script>
-        function showInfo() {
-            document.getElementById("info").innerText = "这是长枪：古代主要兵器之一。";
+        function showInfo(type) {
+            let text = "";
+            if (type === "spear") {
+                text = "长枪被称为“百兵之王”，以其攻击范围广、变化灵活而著称，是中国传统武术中最具代表性的兵器之一。";
+            } else {
+                text = "长剑象征着君子之道，强调灵动与精准，在武术体系中兼具实战与审美价值。";
+            }
+            document.getElementById("info").innerText = text;
         }
     </script>
 
