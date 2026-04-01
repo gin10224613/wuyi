@@ -11,11 +11,37 @@
         body {
             font-family: sans-serif;
             background-color: #f3f4f6;
-            padding-top: 60px;
         }
 
         h1, h2 {
             font-family: 'ZCOOL KuaiLe', cursive;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-blur: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav a {
+            font-weight: bold;
+            color: #b91c1c;
+            margin-left: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #7f1d1d;
         }
 
         .card {
@@ -39,47 +65,37 @@
         }
 
         @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        a { transition: color 0.3s; }
-        a:hover { color: #b91c1c; }
 
         .btn-return {
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .btn-return:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
         }
 
-        /* 导航栏 */
-        #nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-blur: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 0.5rem 1rem;
-            z-index: 50;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
         .lang-btn {
-            padding: 4px 10px;
-            border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin-left: 0.5rem;
+            border: 1px solid #b91c1c;
+            font-weight: bold;
         }
 
         .lang-btn.active {
-            background: #b91c1c;
-            color: #fff;
+            background-color: #b91c1c;
+            color: white;
         }
 
         [data-lang] {
@@ -92,136 +108,88 @@
     </style>
 </head>
 
-<body class="p-10">
+<body class="pt-28 px-6">
 
     <!-- 导航栏 -->
-    <nav id="nav">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-red-700 font-bold text-lg font-['ZCOOL_KuaiLe']">武术文化项目</a>
-            <div class="flex gap-4 items-center">
-                <a href="index.html" class="text-gray-700 hover:text-red-700">首页</a>
-                <div class="flex gap-1">
-                    <div class="lang-btn" id="btnZh">中</div>
-                    <div class="lang-btn" id="btnEn">EN</div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="max-w-5xl mx-auto">
-
-        <!-- 中文内容 -->
-        <div data-lang="zh">
-            <h1 class="text-4xl font-bold mb-12 text-center text-red-700">文化挖掘库</h1>
-
-            <div class="space-y-10">
-                <div class="card animate-fade-in" style="animation-delay: 0s;">
-                    <a href="shibabanyi.html" class="block">
-                        <h2 class="text-2xl font-bold mb-3 text-red-700 hover:text-red-900">十八般武艺</h2>
-                        <p class="leading-relaxed text-gray-800">
-                            “十八般武艺”作为中国传统武术的重要象征，不仅是兵器种类的概括，更是古代军事体系与文化精神的集中体现。其内容涵盖刀、枪、剑、戟等多种兵器，每一种兵器背后都蕴含着独特的技法体系与审美特征。点击了解更多。
-                        </p>
-                    </a>
-                </div>
-
-                <div class="card animate-fade-in" style="animation-delay: 0.2s;">
-                    <a href="baduanjin.html" class="block">
-                        <h2 class="text-2xl font-bold mb-3 text-red-700 hover:text-red-900">八段锦</h2>
-                        <p class="leading-relaxed text-gray-800">
-                            八段锦作为中国传统养生功法的重要代表，其起源可追溯至宋代，历经数百年的发展与演变，逐渐形成了一套动作规范、结构完整、内外兼修的健身体系。点击了解更多。
-                        </p>
-                    </a>
-                </div>
-
-                <div class="card animate-fade-in" style="animation-delay: 0.4s;">
-                    <h2 class="text-2xl font-bold mb-3 text-red-700">非遗传承人口述史</h2>
-                    <p class="leading-relaxed text-gray-800">
-                        在传统武术的传承过程中，“人”始终是最核心的载体。通过对非遗传承人的访谈与记录，可以深入了解武术在不同历史阶段中的传承路径与现实处境。本项目采用口述史方法，对多位武术传承人进行系统访谈，记录其学习经历、技艺特点以及对武术文化的理解与思考。这些第一手资料不仅具有重要的学术价值，也为公众提供了理解传统文化的真实窗口。通过影像、文字与音频的多模态呈现，本模块构建了一个“可感知”的文化记忆空间，使观众能够在个体故事中体会文化传承的复杂性与生命力。
-                    </p>
-                </div>
-
-                <div class="card animate-fade-in" style="animation-delay: 0.6s;">
-                    <h2 class="text-2xl font-bold mb-3 text-red-700">数字基因库</h2>
-                    <p class="leading-relaxed text-gray-800">
-                        在数字技术迅速发展的背景下，如何对传统武术进行系统化记录与再利用，成为文化传承领域的重要课题。本项目提出“武术数字基因库”的概念，通过对动作结构、套路组合及文化符号进行编码，构建一个可持续更新的数据体系。这一体系不仅可以用于教学与传播，还能够为未来的虚拟现实、增强现实等应用提供基础数据支持。通过数字化手段，传统武术不再局限于特定的时间与空间，而是转化为可以被反复调用、持续扩展的文化资源，从而实现从“经验传承”向“数据传承”的重要转变。
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 英文内容 -->
-        <div data-lang="en">
-            <h1 class="text-4xl font-bold mb-12 text-center text-red-700">Cultural Excavation Library</h1>
-
-            <div class="space-y-10">
-                <div class="card animate-fade-in" style="animation-delay: 0s;">
-                    <a href="shibabanyi.html" class="block">
-                        <h2 class="text-2xl font-bold mb-3 text-red-700 hover:text-red-900">The Eighteen Martial Skills</h2>
-                        <p class="leading-relaxed text-gray-800">
-                            "The Eighteen Martial Skills" is a symbol of traditional Chinese martial arts, representing not only types of weapons but also the military system and cultural spirit of ancient China. It covers knives, spears, swords, halberds, and more, each with unique techniques and aesthetic characteristics. Click to learn more.
-                        </p>
-                    </a>
-                </div>
-
-                <div class="card animate-fade-in" style="animation-delay: 0.2s;">
-                    <a href="baduanjin.html" class="block">
-                        <h2 class="text-2xl font-bold mb-3 text-red-700 hover:text-red-900">Baduanjin</h2>
-                        <p class="leading-relaxed text-gray-800">
-                            Baduanjin, a representative traditional Chinese health exercise, originated in the Song Dynasty and has evolved over centuries into a structured fitness system combining internal and external cultivation. Click to learn more.
-                        </p>
-                    </a>
-                </div>
-
-                <div class="card animate-fade-in" style="animation-delay: 0.4s;">
-                    <h2 class="text-2xl font-bold mb-3 text-red-700">Oral History of Intangible Cultural Heritage Inheritors</h2>
-                    <p class="leading-relaxed text-gray-800">
-                        In the inheritance of traditional martial arts, "people" are the core carriers. Through interviews and recordings of intangible cultural heritage inheritors, one can understand the transmission and current state of martial arts across history. This project uses oral history methods to systematically interview multiple martial arts inheritors, documenting their learning experiences, technical characteristics, and understanding of martial arts culture. These first-hand materials are academically valuable and provide the public with an authentic window to understand traditional culture. Through multimedia presentation including video, text, and audio, this module builds a perceptible cultural memory space, allowing the audience to experience the complexity and vitality of cultural inheritance through individual stories.
-                    </p>
-                </div>
-
-                <div class="card animate-fade-in" style="animation-delay: 0.6s;">
-                    <h2 class="text-2xl font-bold mb-3 text-red-700">Digital Gene Library</h2>
-                    <p class="leading-relaxed text-gray-800">
-                        With the rapid development of digital technology, systematically recording and reusing traditional martial arts has become a key issue in cultural inheritance. This project proposes the concept of a "Martial Arts Digital Gene Library," encoding movement structures, routine combinations, and cultural symbols to create a sustainable, updateable data system. This system supports teaching and dissemination and provides foundational data for future VR and AR applications. Through digitalization, traditional martial arts are no longer confined to specific time and space, but are transformed into reusable, expandable cultural resources, achieving an important shift from "experience inheritance" to "data inheritance."
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 返回按钮 -->
-        <div class="mt-12 text-center">
-            <a id="btnReturn" href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                ← 返回首页
-            </a>
+    <div class="nav" id="nav">
+        <div class="text-xl font-bold text-red-700">文化挖掘库</div>
+        <div>
+            <span id="btnZh" class="lang-btn active">中文</span>
+            <span id="btnEn" class="lang-btn">English</span>
         </div>
     </div>
 
-    <script>
-        // 语言切换逻辑
-        function setLang(lang) {
-            localStorage.setItem('lang', lang);
+    <div class="max-w-5xl mx-auto">
 
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                el.classList.toggle('show', el.dataset.lang === lang);
+        <!-- 八段锦内容 -->
+        <div data-lang="zh" class="show">
+            <h1 class="text-4xl font-bold mb-8 text-center text-red-700">八段锦</h1>
+            <div class="space-y-6">
+                <div class="card animate-fade-in" style="animation-delay: 0s;">
+                    <p class="leading-relaxed mb-6">
+                        八段锦（Baduanjin，eight-section brocade），是一种在中国古代发明并流传于民间的传统健身术，是中国古代导引术的一个重要分支，内容包括肢体运动和气息调理...
+                    </p>
+                    <img src="https://aka.doubaocdn.com/s/6qIx1wIgtM" alt="八段锦全套动作" class="rounded shadow w-full max-w-2xl mx-auto">
+                </div>
+            </div>
+        </div>
+
+        <div data-lang="en">
+            <h1 class="text-4xl font-bold mb-8 text-center text-red-700">Baduanjin</h1>
+            <div class="space-y-6">
+                <div class="card animate-fade-in" style="animation-delay: 0s;">
+                    <p class="leading-relaxed mb-6">
+                        Baduanjin (八段锦, eight-section brocade) is a traditional Chinese exercise developed in ancient China. It includes body movements and breath regulation...
+                    </p>
+                    <img src="https://aka.doubaocdn.com/s/6qIx1wIgtM" alt="Baduanjin full set" class="rounded shadow w-full max-w-2xl mx-auto">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <a href="culture.html" 
+               class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors"
+               data-text-zh="← 返回文化挖掘库"
+               data-text-en="← Back to Cultural Excavation Library">
+               ← 返回文化挖掘库
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        const btnZh = document.getElementById('btnZh');
+        const btnEn = document.getElementById('btnEn');
+        const returnBtn = document.querySelector('.btn-return');
+        const langElements = document.querySelectorAll('[data-lang]');
+
+        function setLanguage(lang) {
+            langElements.forEach(el => {
+                el.classList.toggle('show', el.getAttribute('data-lang') === lang);
             });
 
-            document.getElementById('btnReturn').textContent = lang === 'zh' ? '← 返回首页' : '← Back to Home';
+            btnZh.classList.toggle('active', lang === 'zh');
+            btnEn.classList.toggle('active', lang === 'en');
 
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(lang === 'zh' ? 'btnZh' : 'btnEn').classList.add('active');
+            if (returnBtn) {
+                returnBtn.textContent = returnBtn.getAttribute(`data-text-${lang}`);
+            }
+
+            localStorage.setItem('lang', lang);
         }
 
-        const savedLang = localStorage.getItem('lang') || 'zh';
-        setLang(savedLang);
+        btnZh.addEventListener('click', () => setLanguage('zh'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
 
-        document.getElementById('btnZh').onclick = () => setLang('zh');
-        document.getElementById('btnEn').onclick = () => setLang('en');
+        const defaultLang = localStorage.getItem('lang') || 'zh';
+        setLanguage(defaultLang);
 
-        // 滚动显示导航
-        window.addEventListener('scroll', function () {
-            const nav = document.getElementById('nav');
-            nav.style.opacity = window.scrollY > 50 ? '1' : '0';
+        // 导航栏滚动效果（可选）
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.style.opacity = window.scrollY > 50 ? '1' : '0.95';
         });
     </script>
+
 </body>
 </html>
