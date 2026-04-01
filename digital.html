@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Communication</title>
+    <title>数智体验</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
@@ -13,24 +13,19 @@
             background-color: #f3f4f6;
             padding-top: 60px;
         }
-
         h1, h2 {
             font-family: 'ZCOOL KuaiLe', cursive;
         }
-
         h1 {
             background: linear-gradient(to right, #b91c1c, #ef4444);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-shadow: 0 0 5px rgba(239, 68, 68, 0.2);
-            transition: text-shadow 0.3s ease;
         }
-
         h1:hover {
             text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
         }
-
         .card {
             background: #ffffff;
             border-radius: 12px;
@@ -44,86 +39,66 @@
             background-origin: padding-box, border-box;
             background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(to right, #ef4444, #b91c1c);
         }
-
         .card:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
             background: linear-gradient(135deg, #ffffff, #fff7f3);
             background-image: linear-gradient(#ffffff, #fff7f3), linear-gradient(to right, #b91c1c, #991b1b);
         }
-
         .animate-fade-in {
             animation: fadeInUp 0.8s forwards;
         }
-
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
-        p {
-            opacity: 0;
-            animation: fadeInText 1s forwards;
-            animation-delay: 0.3s;
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #b91c1c;
         }
-
-        @keyframes fadeInText {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .lang-btn.active {
+            background: #b91c1c;
+            color: #fff;
         }
-
-        .card p {
-            animation-delay: calc(0.3s + var(--card-delay, 0s));
+        [data-lang] {
+            display: none;
         }
-
-        a {
-            transition: color 0.3s;
+        [data-lang].show {
+            display: block;
         }
-
-        a:hover {
-            color: #b91c1c;
+        canvas {
+            display: block;
+            margin: 1rem auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
-
         .btn-return {
             transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
             background: linear-gradient(to right, #b91c1c, #ef4444);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            display: inline-block;
+            text-decoration: none;
         }
-
         .btn-return:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
             background: linear-gradient(to right, #991b1b, #dc2626);
         }
-
         .btn-return:active {
             transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(185, 28, 28, 0.3);
         }
-
         #nav {
             opacity: 0;
             transition: opacity 0.3s ease;
-        }
-
-        .lang-btn {
-            padding: 4px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .lang-btn.active {
-            background: #b91c1c;
-            color: #fff;
-        }
-
-        [data-lang] {
-            display: none;
-        }
-
-        [data-lang].show {
-            display: block;
         }
     </style>
 </head>
@@ -146,120 +121,135 @@
 
     <div class="max-w-5xl mx-auto">
 
-        <!-- 中文 -->
-        <h1 data-lang="zh" class="text-4xl font-bold mb-8 text-center">全球传播</h1>
-        <p data-lang="zh" class="mb-8 leading-relaxed text-gray-800 text-lg">
-            本模块关注中国武术文化的国际传播。在全球化背景下，传统文化不再局限于国界，
-            而是参与跨文化对话和再诠释。通过构建多语言传播体系，
-            本项目旨在将武术文化转化为全球观众易于理解、参与和认同的形式。
-            除了动作技巧的传授，还强调哲学思想、历史背景以及礼仪文化，
-            使学习者能够全面理解武术的文化价值和精神内涵。
-        </p>
+        <!-- 中文内容 -->
+        <div data-lang="zh" class="show">
+            <h1 class="text-4xl font-bold mb-8 text-center">数智体验场</h1>
+            <div class="space-y-6">
+                <div class="card animate-fade-in" style="animation-delay: 0s;">
+                    <p class="mb-6 leading-relaxed">
+                        数智体验模块致力于将数字技术与传统武术文化相结合，探索沉浸式、互动式的文化体验方式。
+                        在信息技术快速发展的背景下，传统文化的传播方式正在发生深刻变化，从单向展示转向多维互动。
+                        本模块通过引入虚拟现实、全景展示与交互设计，使用户能够以更加直观和参与性的方式接触武术文化，从而提升体验深度与传播效果。
+                    </p>
 
-        <!-- 英文 -->
-        <h1 data-lang="en" class="text-4xl font-bold mb-8 text-center">Global Communication</h1>
-        <p data-lang="en" class="mb-8 leading-relaxed text-gray-800 text-lg">
-            This module focuses on the international dissemination of Chinese martial arts culture.
-            In the context of globalization, traditional culture is no longer confined within national boundaries,
-            but participates in cross-cultural dialogue and reinterpretation.
-            By constructing a multilingual communication system,
-            this project aims to transform martial arts culture into a form that is understandable,
-            engaging, and meaningful to global audiences.
-            Beyond teaching physical techniques, it emphasizes philosophical thought,
-            historical context, and ceremonial practices, allowing learners to fully appreciate
-            the cultural value and spiritual essence of martial arts.
-        </p>
-
-        <!-- 卡片模块 -->
-        <div class="space-y-6">
-            <div class="card animate-fade-in" style="animation-delay: 0s; --card-delay: 0s;">
-                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">多语言教育资源</h2>
-                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Multilingual Educational Resources</h2>
-                <p data-lang="zh" class="leading-relaxed">
-                    提供双语及多语学习资料，包括教学视频、图文电子书和文化指南。
-                    这些资源旨在降低国际学习者的入门门槛，让他们不仅理解动作，还能深入了解背后的哲学和文化。
-                    每个学习模块配有详细注释和案例分析，帮助学习者将理论与实践结合，增强学习效果。
-                </p>
-                <p data-lang="en" class="leading-relaxed">
-                    We provide bilingual and multilingual learning materials, including instructional videos,
-                    illustrated e-books, and cultural guides. These resources are designed to lower the entry
-                    barrier for international learners, enabling them not only to understand movements,
-                    but also to explore the underlying philosophy and culture. Each module comes with
-                    detailed annotations and case studies to help learners integrate theory with practice
-                    and enhance learning outcomes.
-                </p>
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">数字兵器旋转展示</h2>
+                    <p class="mb-4 leading-relaxed">
+                        使用交互式数字技术展示传统兵器的旋转与运动，用户可通过鼠标或触摸操作观察不同角度和细节。
+                    </p>
+                    <canvas id="weaponCanvas" width="400" height="200"></canvas>
+                    <div class="mt-4">
+                        <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2 rounded">长枪</button>
+                        <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2 rounded">长剑</button>
+                    </div>
+                    <p id="info" class="mt-4 text-gray-700"></p>
+                </div>
             </div>
+        </div>
 
-            <div class="card animate-fade-in" style="animation-delay: 0.2s; --card-delay: 0.2s;">
-                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">跨文化传播策略</h2>
-                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Cross-cultural Communication Strategy</h2>
-                <p data-lang="zh" class="leading-relaxed">
-                    本项目采用跨文化适配的方法，而非直接翻译内容。通过叙事、视觉媒介与现代叙事结合，
-                    传统元素被重新诠释，以符合现代价值观和审美。同时，注重文化敏感性和多样性，
-                    使武术在不同文化环境中都能被理解和接受，促进真正的国际文化交流。
-                </p>
-                <p data-lang="en" class="leading-relaxed">
-                    Instead of directly translating content, this project adopts a cross-cultural adaptation
-                    approach, combining storytelling, visual media, and contemporary narratives to reinterpret
-                    traditional elements in ways that align with modern values and aesthetics. It also emphasizes
-                    cultural sensitivity and diversity, ensuring martial arts can be understood and accepted
-                    across different cultural contexts, promoting genuine international cultural exchange.
-                </p>
-            </div>
+        <!-- 英文内容 -->
+        <div data-lang="en">
+            <h1 class="text-4xl font-bold mb-8 text-center">Digital Experience</h1>
+            <div class="space-y-6">
+                <div class="card animate-fade-in" style="animation-delay: 0s;">
+                    <p class="mb-6 leading-relaxed">
+                        The Digital Experience module combines digital technology with traditional Chinese martial arts, exploring immersive and interactive cultural experiences.
+                        In the context of rapid technological development, traditional culture is moving from one-way display to multidimensional interaction.
+                        This module allows users to engage more intuitively and interactively with martial arts culture, enhancing the depth of experience and communication effect.
+                    </p>
 
-            <div class="card animate-fade-in" style="animation-delay: 0.4s; --card-delay: 0.4s;">
-                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">社交媒体与全球平台</h2>
-                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Social Media and Global Platforms</h2>
-                <p data-lang="zh" class="leading-relaxed mb-4">
-                    项目积极利用YouTube、TikTok等国际平台进行推广，定期发布短视频、教程和创意内容，
-                    与全球观众保持持续互动。同时，通过线上讨论和社区活动，
-                    学习者可以分享心得、提出问题，形成开放的学习生态。
-                </p>
-                <p data-lang="en" class="leading-relaxed mb-4">
-                    The project actively utilizes international platforms such as YouTube and TikTok,
-                    regularly publishing short videos, tutorials, and creative content to maintain continuous engagement
-                    with global audiences. Through online discussions and community events, learners can share
-                    insights, ask questions, and create an open learning ecosystem.
-                </p>
-                <div class="mt-4">
-                    <a href="https://youtube.com" class="text-blue-500 hover:text-red-700">YouTube</a> |
-                    <a href="https://tiktok.com" class="text-blue-500 hover:text-red-700">TikTok</a>
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">Interactive Weapon Rotation</h2>
+                    <p class="mb-4 leading-relaxed">
+                        Interactive digital display of traditional weapons allows users to rotate and view them from different angles.
+                    </p>
+                    <canvas id="weaponCanvasEn" width="400" height="200"></canvas>
+                    <div class="mt-4">
+                        <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2 rounded">Spear</button>
+                        <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2 rounded">Sword</button>
+                    </div>
+                    <p id="infoEn" class="mt-4 text-gray-700"></p>
                 </div>
             </div>
         </div>
 
         <!-- 返回首页 -->
         <div class="mt-10 text-center">
-            <a id="btnReturn" href="index.html"
-                class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">
+            <a href="index.html" class="btn-return" data-text-zh="← 返回首页" data-text-en="← Back to Home">
                 ← 返回首页
             </a>
         </div>
+
     </div>
 
     <script>
-        function setLang(lang) {
-            localStorage.setItem('lang', lang);
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                el.classList.toggle('show', el.dataset.lang === lang);
+        // 语言切换
+        const btnZh = document.getElementById('btnZh');
+        const btnEn = document.getElementById('btnEn');
+        const returnBtn = document.querySelector('.btn-return');
+        const langElements = document.querySelectorAll('[data-lang]');
+
+        function setLanguage(lang) {
+            langElements.forEach(el => {
+                el.classList.toggle('show', el.getAttribute('data-lang') === lang);
             });
-            document.getElementById('btnReturn').textContent = lang === 'zh' ? '← 返回首页' : '← Back to Home';
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(lang === 'zh' ? 'btnZh' : 'btnEn').classList.add('active');
+            btnZh.classList.toggle('active', lang === 'zh');
+            btnEn.classList.toggle('active', lang === 'en');
+            if (returnBtn) {
+                returnBtn.textContent = returnBtn.getAttribute(`data-text-${lang}`);
+            }
+            localStorage.setItem('lang', lang);
         }
 
-        const savedLang = localStorage.getItem('lang') || 'zh';
-        setLang(savedLang);
+        btnZh.addEventListener('click', () => setLanguage('zh'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
 
-        document.getElementById('btnZh').onclick = () => setLang('zh');
-        document.getElementById('btnEn').onclick = () => setLang('en');
+        const defaultLang = localStorage.getItem('lang') || 'zh';
+        setLanguage(defaultLang);
 
-        window.addEventListener('scroll', function () {
-            const nav = document.getElementById('nav');
-            nav.style.opacity = window.scrollY > 50 ? '1' : '0';
-        });
+        // 兵器信息显示
+        function showInfo(type) {
+            const lang = localStorage.getItem('lang') || 'zh';
+            let text = '';
+            if (type === "spear") {
+                text = lang === 'zh' ? "长枪被称为“百兵之王”，以其攻击范围广、变化灵活而著称，是中国传统武术中最具代表性的兵器之一。" :
+                    "The spear is called the 'King of Weapons', known for its long reach and versatility, a representative weapon in traditional Chinese martial arts.";
+            } else {
+                text = lang === 'zh' ? "长剑象征着君子之道，强调灵动与精准，在武术体系中兼具实战与审美价值。" :
+                    "The sword symbolizes the gentleman's way, emphasizing agility and precision, with both practical and aesthetic value in martial arts.";
+            }
+            if(lang==='zh'){
+                document.getElementById('info').innerText = text;
+            }else{
+                document.getElementById('infoEn').innerText = text;
+            }
+        }
+
+        // Canvas 兵器旋转演示
+        function initCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let angle = 0;
+
+            function drawWeapon() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.save();
+                ctx.translate(canvas.width/2, canvas.height/2);
+                ctx.rotate(angle);
+                ctx.fillStyle = '#b91c1c';
+                ctx.fillRect(-10, -80, 20, 160);
+                ctx.fillStyle = '#333';
+                ctx.fillRect(-15, -85, 30, 10);
+                ctx.restore();
+                angle += 0.01;
+                requestAnimationFrame(drawWeapon);
+            }
+            drawWeapon();
+        }
+
+        initCanvas('weaponCanvas');
+        initCanvas('weaponCanvasEn');
+
     </script>
 
 </body>
-
 </html>
