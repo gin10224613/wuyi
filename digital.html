@@ -1,4 +1,78 @@
-<!-- 省略头部部分，保留原样 -->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数智体验</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f3f4f6;
+            padding: 40px 20px;
+        }
+        h1, h2 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+            background: linear-gradient(135deg,#ffffff,#fff7f3);
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.8s forwards;
+        }
+        @keyframes fadeInUp {
+            0% { opacity:0; transform: translateY(30px); }
+            100% { opacity:1; transform: translateY(0); }
+        }
+        .lang-btn {
+            cursor:pointer;
+            padding:0.5rem 1rem;
+            border-radius:8px;
+            margin-left:0.5rem;
+            border:1px solid #b91c1c;
+            font-weight:bold;
+        }
+        .lang-btn.active {
+            background-color:#b91c1c;
+            color:white;
+        }
+        [data-lang] { display:none; }
+        [data-lang].show { display:block; }
+        canvas {
+            display:block;
+            margin: 0 auto;
+            border:1px solid #ccc;
+            border-radius:8px;
+            background-color:#f9f9f9;
+        }
+        .btn-return {
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            background: linear-gradient(to right,#b91c1c,#ef4444);
+            color: white;
+            padding:0.75rem 2rem;
+            border-radius:0.5rem;
+            display:inline-block;
+            font-weight:bold;
+        }
+        .btn-return:hover {
+            transform: translateY(-3px);
+            box-shadow:0 8px 15px rgba(185,28,28,0.4);
+        }
+    </style>
+</head>
 
 <body>
 
@@ -19,14 +93,21 @@
                     <p class="mb-6 leading-relaxed">
                         数智体验模块致力于将数字技术与传统武术文化相结合，
                         探索沉浸式、互动式的文化体验方式。
+                        在信息技术快速发展的背景下，
+                        传统文化的传播方式正在发生深刻变化，
+                        从单向展示转向多维互动。
+                        本模块通过引入虚拟现实、交互设计，
+                        使用户能够以更加直观和参与性的方式接触武术文化，
+                        提升体验深度与传播效果。
                     </p>
 
                     <h2 class="text-2xl font-bold mb-4 text-red-700">互动武器展示</h2>
                     <p class="mb-4 leading-relaxed">
-                        点击下方按钮，查看不同传统武器的旋转与介绍。并可调整旋转角度。
+                        点击下方按钮，查看不同传统武器的旋转与介绍。
+                        包括长枪、长剑、棍、鞭、流星锤等。
                     </p>
 
-                    <canvas id="weaponCanvas" width="600" height="300"></canvas>
+                    <canvas id="weaponCanvas" width="500" height="250"></canvas>
 
                     <div class="mt-4 flex flex-wrap justify-center gap-2">
                         <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 rounded">长枪</button>
@@ -34,14 +115,6 @@
                         <button onclick="showInfo('staff')" class="bg-yellow-500 text-white p-2 rounded">棍</button>
                         <button onclick="showInfo('chainWhip')" class="bg-purple-500 text-white p-2 rounded">鞭</button>
                         <button onclick="showInfo('meteorHammer')" class="bg-red-500 text-white p-2 rounded">流星锤</button>
-                        <button onclick="showInfo('nunchaku')" class="bg-pink-500 text-white p-2 rounded">双节棍</button>
-                        <button onclick="showInfo('glaive')" class="bg-indigo-500 text-white p-2 rounded">钩镰枪</button>
-                        <button onclick="showInfo('fan')" class="bg-teal-500 text-white p-2 rounded">扇</button>
-                    </div>
-
-                    <div class="mt-4 flex justify-center items-center gap-2">
-                        <label for="angleSlider" class="text-gray-700">旋转速度:</label>
-                        <input id="angleSlider" type="range" min="0" max="0.1" step="0.005" value="0.01">
                     </div>
 
                     <p id="info" class="mt-4 text-gray-700"></p>
@@ -63,10 +136,11 @@
 
                     <h2 class="text-2xl font-bold mb-4 text-red-700">Interactive Weapon Display</h2>
                     <p class="mb-4 leading-relaxed">
-                        Click the buttons below to view different traditional weapons with rotation and adjustable speed.
+                        Click the buttons below to view different traditional weapons and their rotation animation.
+                        Includes Spear, Sword, Staff, Chain Whip, and Meteor Hammer.
                     </p>
 
-                    <canvas id="weaponCanvasEn" width="600" height="300"></canvas>
+                    <canvas id="weaponCanvasEn" width="500" height="250"></canvas>
 
                     <div class="mt-4 flex flex-wrap justify-center gap-2">
                         <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 rounded">Spear</button>
@@ -74,14 +148,6 @@
                         <button onclick="showInfo('staff')" class="bg-yellow-500 text-white p-2 rounded">Staff</button>
                         <button onclick="showInfo('chainWhip')" class="bg-purple-500 text-white p-2 rounded">Chain Whip</button>
                         <button onclick="showInfo('meteorHammer')" class="bg-red-500 text-white p-2 rounded">Meteor Hammer</button>
-                        <button onclick="showInfo('nunchaku')" class="bg-pink-500 text-white p-2 rounded">Nunchaku</button>
-                        <button onclick="showInfo('glaive')" class="bg-indigo-500 text-white p-2 rounded">Glaive</button>
-                        <button onclick="showInfo('fan')" class="bg-teal-500 text-white p-2 rounded">Fan</button>
-                    </div>
-
-                    <div class="mt-4 flex justify-center items-center gap-2">
-                        <label for="angleSliderEn" class="text-gray-700">Rotation speed:</label>
-                        <input id="angleSliderEn" type="range" min="0" max="0.1" step="0.005" value="0.01">
                     </div>
 
                     <p id="infoEn" class="mt-4 text-gray-700"></p>
@@ -98,170 +164,148 @@
 
     </div>
 
-<script>
-    // 语言切换部分保持不变
-    const btnZh = document.getElementById('btnZh');
-    const btnEn = document.getElementById('btnEn');
-    const returnBtn = document.querySelector('.btn-return');
-    const langElements = document.querySelectorAll('[data-lang]');
+    <script>
+        // 语言切换
+        const btnZh = document.getElementById('btnZh');
+        const btnEn = document.getElementById('btnEn');
+        const returnBtn = document.querySelector('.btn-return');
+        const langElements = document.querySelectorAll('[data-lang]');
 
-    function setLanguage(lang) {
-        langElements.forEach(el => {
-            el.classList.toggle('show', el.getAttribute('data-lang') === lang);
-        });
-        btnZh.classList.toggle('active', lang === 'zh');
-        btnEn.classList.toggle('active', lang === 'en');
-        if (returnBtn) returnBtn.textContent = returnBtn.getAttribute(`data-text-${lang}`);
-        localStorage.setItem('lang', lang);
-    }
-
-    btnZh.addEventListener('click', () => setLanguage('zh'));
-    btnEn.addEventListener('click', () => setLanguage('en'));
-    setLanguage(localStorage.getItem('lang') || 'zh');
-
-    // 武器信息
-    const weaponsInfo = {
-        spear: { zh: "长枪被称为“百兵之王”，攻击范围广、变化灵活，是中国传统武术代表兵器。", en: "The spear is called the 'King of Weapons', known for its long reach and versatility." },
-        sword: { zh: "长剑象征君子之道，强调灵动与精准。", en: "The sword symbolizes the gentleman's way, emphasizing agility and precision." },
-        staff: { zh: "棍为基础兵器，灵活多变。", en: "The staff is a fundamental weapon, versatile in offense and defense." },
-        chainWhip: { zh: "鞭以快速连击和灵活著称。", en: "The chain whip is known for rapid strikes and flexibility." },
-        meteorHammer: { zh: "流星锤由链和重锤组成，需要高超技巧。", en: "The meteor hammer consists of a chain and heavy weight, requiring high skill." },
-        nunchaku: { zh: "双节棍灵活快速，适合连续攻击。", en: "The nunchaku is fast and flexible, ideal for consecutive strikes." },
-        glaive: { zh: "钩镰枪结合钩和枪的特点，攻击范围广。", en: "The glaive combines a hook and spear, providing long-range attacks." },
-        fan: { zh: "武术扇轻巧灵活，可用于防守与表演。", en: "The martial arts fan is light and agile, used for defense and performance." }
-    };
-
-    let currentWeapon = {id:'spear', color:'#b91c1c', angleSpeed:0.01};
-
-    function showInfo(type){
-        currentWeapon.id = type;
-        switch(type){
-            case 'spear': currentWeapon.color='#b91c1c'; break;
-            case 'sword': currentWeapon.color='#333'; break;
-            case 'staff': currentWeapon.color='#f59e0b'; break;
-            case 'chainWhip': currentWeapon.color='#7c3aed'; break;
-            case 'meteorHammer': currentWeapon.color='#ef4444'; break;
-            case 'nunchaku': currentWeapon.color='#ec4899'; break;
-            case 'glaive': currentWeapon.color='#4f46e5'; break;
-            case 'fan': currentWeapon.color='#14b8a6'; break;
-        }
-        const lang = localStorage.getItem('lang') || 'zh';
-        const text = weaponsInfo[type][lang];
-        if(lang==='zh') document.getElementById('info').innerText = text;
-        else document.getElementById('infoEn').innerText = text;
-    }
-
-    // Canvas动画和动态背景
-    function initCanvas(canvasId, sliderId){
-        const canvas = document.getElementById(canvasId);
-        const slider = document.getElementById(sliderId);
-        if(!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let angle = 0;
-        let particles = [];
-        for(let i=0;i<50;i++){
-            particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, dx:(Math.random()-0.5)*1, dy:(Math.random()-0.5)*1});
-        }
-
-        slider.addEventListener('input',()=> currentWeapon.angleSpeed = parseFloat(slider.value));
-
-        function drawBackground(){
-            ctx.fillStyle='rgba(0,0,0,0.05)';
-            ctx.fillRect(0,0,canvas.width,canvas.height);
-            particles.forEach(p=>{
-                p.x+=p.dx; p.y+=p.dy;
-                if(p.x>canvas.width) p.x=0; if(p.x<0) p.x=canvas.width;
-                if(p.y>canvas.height) p.y=0; if(p.y<0) p.y=canvas.height;
-                ctx.fillStyle='rgba(255,255,255,0.7)';
-                ctx.beginPath();
-                ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-                ctx.fill();
+        function setLanguage(lang) {
+            langElements.forEach(el => {
+                el.classList.toggle('show', el.getAttribute('data-lang') === lang);
             });
+            btnZh.classList.toggle('active', lang === 'zh');
+            btnEn.classList.toggle('active', lang === 'en');
+            if (returnBtn) returnBtn.textContent = returnBtn.getAttribute(`data-text-${lang}`);
+            localStorage.setItem('lang', lang);
         }
 
-        function drawWeapon(){
-            ctx.save();
-            ctx.translate(canvas.width/2, canvas.height/2);
+        btnZh.addEventListener('click', () => setLanguage('zh'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
+        setLanguage(localStorage.getItem('lang') || 'zh');
 
-            switch(currentWeapon.id){
-                case 'spear':
-                    ctx.rotate(angle);
-                    ctx.fillStyle = currentWeapon.color;
-                    ctx.fillRect(-5,-80,10,160);
-                    ctx.fillStyle='#999';
-                    ctx.beginPath();
-                    ctx.moveTo(0,-90); ctx.lineTo(10,-70); ctx.lineTo(-10,-70); ctx.closePath(); ctx.fill();
-                    break;
-                case 'sword':
-                    ctx.rotate(angle);
-                    ctx.fillStyle=currentWeapon.color;
-                    ctx.fillRect(-3,-70,6,140);
-                    ctx.fillStyle='#333'; ctx.fillRect(-10,70,20,5);
-                    ctx.beginPath(); ctx.moveTo(0,-70); ctx.lineTo(5,-90); ctx.lineTo(-5,-90); ctx.closePath(); ctx.fill();
-                    break;
-                case 'staff':
-                    ctx.rotate(angle*0.8);
-                    ctx.fillStyle=currentWeapon.color;
-                    ctx.fillRect(-8,-80,16,160);
-                    break;
-                case 'chainWhip':
-                    ctx.rotate(angle*1.5);
-                    ctx.strokeStyle=currentWeapon.color; ctx.lineWidth=4;
-                    ctx.beginPath();
-                    for(let i=0;i<30;i++){ const x=i*5; const y=Math.sin(i/3+angle*5)*15; if(i===0) ctx.moveTo(-x,-y); else ctx.lineTo(-x,-y); }
-                    ctx.stroke();
-                    break;
-                case 'meteorHammer':
-                    ctx.rotate(angle*1.2);
-                    ctx.fillStyle='#555';
-                    ctx.fillRect(-3,-60,6,120);
-                    ctx.beginPath(); ctx.arc(0,60,15,0,Math.PI*2); ctx.fillStyle=currentWeapon.color; ctx.fill();
-                    break;
-                case 'nunchaku':
-                    ctx.rotate(angle*1.5);
-                    ctx.fillStyle=currentWeapon.color;
-                    ctx.fillRect(-30,-5,30,10);
-                    ctx.fillRect(0,-5,30,10);
-                    ctx.beginPath();
-                    ctx.moveTo(0,0); ctx.lineTo(0,0); ctx.stroke();
-                    break;
-                case 'glaive':
-                    ctx.rotate(angle);
-                    ctx.fillStyle=currentWeapon.color;
-                    ctx.fillRect(-5,-100,10,200);
-                    ctx.beginPath(); ctx.moveTo(0,-110); ctx.lineTo(15,-90); ctx.lineTo(-15,-90); ctx.closePath(); ctx.fill();
-                    break;
-                case 'fan':
-                    ctx.rotate(angle*0.7);
-                    ctx.fillStyle=currentWeapon.color;
-                    ctx.beginPath();
-                    ctx.moveTo(0,0);
-                    for(let i=0;i<=5;i++){
-                        let theta = Math.PI/5*i;
-                        ctx.lineTo(Math.cos(theta)*50, Math.sin(theta)*50);
-                    }
-                    ctx.closePath();
-                    ctx.fill();
-                    break;
+        // 武器信息
+        const weaponsInfo = {
+            spear: {
+                zh: "长枪被称为“百兵之王”，攻击范围广、变化灵活，是中国传统武术代表兵器。",
+                en: "The spear is called the 'King of Weapons', known for its long reach and versatility in traditional Chinese martial arts."
+            },
+            sword: {
+                zh: "长剑象征君子之道，强调灵动与精准，在武术体系中兼具实战与审美价值。",
+                en: "The sword symbolizes the gentleman's way, emphasizing agility and precision, both practical and aesthetic in martial arts."
+            },
+            staff: {
+                zh: "棍为基础兵器，灵活多变，兼具防守与进攻功能，是武术入门常用兵器。",
+                en: "The staff is a fundamental weapon, versatile in offense and defense, commonly used in martial arts training."
+            },
+            chainWhip: {
+                zh: "鞭以快速连击和灵活著称，体现武术的敏捷与力量结合。",
+                en: "The chain whip is known for rapid strikes and flexibility, showcasing agility and strength."
+            },
+            meteorHammer: {
+                zh: "流星锤由链和重锤组成，需要高超技巧，威力巨大，是武术中的高级兵器。",
+                en: "The meteor hammer consists of a chain and heavy weight, requiring high skill, delivering great power as an advanced martial weapon."
+            }
+        };
+
+        let currentWeapon = {id:'spear', color:'#b91c1c'};
+
+        function showInfo(type) {
+            currentWeapon.id = type;
+            switch(type){
+                case 'spear': currentWeapon.color='#b91c1c'; break;
+                case 'sword': currentWeapon.color='#333'; break;
+                case 'staff': currentWeapon.color='#f59e0b'; break;
+                case 'chainWhip': currentWeapon.color='#7c3aed'; break;
+                case 'meteorHammer': currentWeapon.color='#ef4444'; break;
+            }
+            const lang = localStorage.getItem('lang') || 'zh';
+            const text = weaponsInfo[type][lang];
+            if(lang==='zh') document.getElementById('info').innerText = text;
+            else document.getElementById('infoEn').innerText = text;
+        }
+
+        // Canvas动画
+        function initCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let angle = 0;
+
+            function draw() {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.save();
+                ctx.translate(canvas.width/2, canvas.height/2);
+
+                switch(currentWeapon.id){
+                    case 'spear':
+                        ctx.rotate(angle);
+                        ctx.fillStyle = currentWeapon.color;
+                        ctx.fillRect(-5,-80,10,160);
+                        ctx.fillStyle='#999';
+                        ctx.beginPath();
+                        ctx.moveTo(0,-90);
+                        ctx.lineTo(10,-70);
+                        ctx.lineTo(-10,-70);
+                        ctx.closePath();
+                        ctx.fill();
+                        break;
+                    case 'sword':
+                        ctx.rotate(angle);
+                        ctx.fillStyle=currentWeapon.color;
+                        ctx.fillRect(-3,-70,6,140);
+                        ctx.fillStyle='#333';
+                        ctx.fillRect(-10,70,20,5);
+                        ctx.beginPath();
+                        ctx.moveTo(0,-70);
+                        ctx.lineTo(5,-90);
+                        ctx.lineTo(-5,-90);
+                        ctx.closePath();
+                        ctx.fill();
+                        break;
+                    case 'staff':
+                        ctx.rotate(angle*0.8);
+                        ctx.fillStyle=currentWeapon.color;
+                        ctx.fillRect(-8,-80,16,160);
+                        break;
+                    case 'chainWhip':
+                        ctx.rotate(angle*1.5);
+                        ctx.strokeStyle=currentWeapon.color;
+                        ctx.lineWidth=4;
+                        ctx.beginPath();
+                        for(let i=0;i<30;i++){
+                            const x=i*5;
+                            const y=Math.sin(i/3+angle*5)*15;
+                            if(i===0) ctx.moveTo(-x,-y);
+                            else ctx.lineTo(-x,-y);
+                        }
+                        ctx.stroke();
+                        break;
+                    case 'meteorHammer':
+                        ctx.rotate(angle*1.2);
+                        ctx.fillStyle='#555';
+                        ctx.fillRect(-3,-60,6,120);
+                        ctx.beginPath();
+                        ctx.arc(0,60,15,0,Math.PI*2);
+                        ctx.fillStyle=currentWeapon.color;
+                        ctx.fill();
+                        break;
+                }
+
+                ctx.restore();
+                angle+=0.01;
+                requestAnimationFrame(draw);
             }
 
-            ctx.restore();
-            angle+=currentWeapon.angleSpeed;
+            draw();
         }
 
-        function animate(){
-            drawBackground();
-            drawWeapon();
-            requestAnimationFrame(animate);
-        }
+        initCanvas('weaponCanvas');
+        initCanvas('weaponCanvasEn');
 
-        animate();
-    }
-
-    initCanvas('weaponCanvas','angleSlider');
-    initCanvas('weaponCanvasEn','angleSliderEn');
-
-    showInfo('spear'); // 默认显示
-</script>
+        showInfo('spear'); // 默认显示
+    </script>
 
 </body>
+</html>
