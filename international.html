@@ -113,7 +113,6 @@
             transition: opacity 0.3s ease;
         }
 
-        /* 语言切换按钮始终显示，不受data-lang影响 */
         .lang-btn {
             padding: 4px 10px;
             border-radius: 6px;
@@ -127,7 +126,6 @@
             color: #fff;
         }
 
-        /* 内容切换 */
         [data-lang] {
             display: none;
         }
@@ -156,15 +154,17 @@
 
     <div class="max-w-5xl mx-auto">
 
-        <!-- 中文内容 -->
+        <!-- 中文 -->
         <h1 data-lang="zh" class="text-4xl font-bold mb-8 text-center">全球传播</h1>
         <p data-lang="zh" class="mb-8 leading-relaxed text-gray-800 text-lg">
             本模块关注中国武术文化的国际传播。在全球化背景下，传统文化不再局限于国界，
             而是参与跨文化对话和再诠释。通过构建多语言传播体系，
             本项目旨在将武术文化转化为全球观众易于理解、参与和认同的形式。
+            除了动作技巧的传授，还强调哲学思想、历史背景以及礼仪文化，
+            使学习者能够全面理解武术的文化价值和精神内涵。
         </p>
 
-        <!-- 英文内容 -->
+        <!-- 英文 -->
         <h1 data-lang="en" class="text-4xl font-bold mb-8 text-center">Global Communication</h1>
         <p data-lang="en" class="mb-8 leading-relaxed text-gray-800 text-lg">
             This module focuses on the international dissemination of Chinese martial arts culture.
@@ -173,30 +173,68 @@
             By constructing a multilingual communication system,
             this project aims to transform martial arts culture into a form that is understandable,
             engaging, and meaningful to global audiences.
+            Beyond teaching physical techniques, it emphasizes philosophical thought,
+            historical context, and ceremonial practices, allowing learners to fully appreciate
+            the cultural value and spiritual essence of martial arts.
         </p>
 
-        <!-- 卡片内容保持原样 -->
         <div class="space-y-6">
             <div class="card animate-fade-in" style="animation-delay: 0s; --card-delay: 0s;">
                 <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">多语言教育资源</h2>
                 <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Multilingual Educational Resources</h2>
                 <p data-lang="zh" class="leading-relaxed">
                     提供双语及多语学习资料，包括教学视频、图文电子书和文化指南。
-                    这些资源旨在降低国际学习者的入门门槛，
-                    让他们不仅理解动作，更理解背后的哲学和文化意义。
+                    这些资源旨在降低国际学习者的入门门槛，让他们不仅理解动作，还能深入了解背后的哲学和文化。
+                    每个学习模块配有详细注释和案例分析，帮助学习者将理论与实践结合，增强学习效果。
                 </p>
                 <p data-lang="en" class="leading-relaxed">
-                    We provide bilingual and multilingual learning materials,
-                    including instructional videos, illustrated e-books, and cultural guides.
-                    These resources are designed to lower the entry barrier for international learners,
-                    allowing them to understand not only the physical movements,
-                    but also the philosophical and cultural meanings behind them.
+                    We provide bilingual and multilingual learning materials, including instructional videos,
+                    illustrated e-books, and cultural guides. These resources are designed to lower the entry
+                    barrier for international learners, enabling them not only to understand movements,
+                    but also to explore the underlying philosophy and culture. Each module comes with
+                    detailed annotations and case studies to help learners integrate theory with practice
+                    and enhance learning outcomes.
                 </p>
             </div>
-            <!-- 后续卡片可继续复制 -->
+
+            <div class="card animate-fade-in" style="animation-delay: 0.2s; --card-delay: 0.2s;">
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">跨文化传播策略</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Cross-cultural Communication Strategy</h2>
+                <p data-lang="zh" class="leading-relaxed">
+                    本项目采用跨文化适配的方法，而非直接翻译内容。通过叙事、视觉媒介与现代叙事结合，
+                    传统元素被重新诠释，以符合现代价值观和审美。同时，注重文化敏感性和多样性，
+                    使武术在不同文化环境中都能被理解和接受，促进真正的国际文化交流。
+                </p>
+                <p data-lang="en" class="leading-relaxed">
+                    Instead of directly translating content, this project adopts a cross-cultural adaptation
+                    approach, combining storytelling, visual media, and contemporary narratives to reinterpret
+                    traditional elements in ways that align with modern values and aesthetics. It also emphasizes
+                    cultural sensitivity and diversity, ensuring martial arts can be understood and accepted
+                    across different cultural contexts, promoting genuine international cultural exchange.
+                </p>
+            </div>
+
+            <div class="card animate-fade-in" style="animation-delay: 0.4s; --card-delay: 0.4s;">
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">社交媒体与全球平台</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Social Media and Global Platforms</h2>
+                <p data-lang="zh" class="leading-relaxed mb-4">
+                    项目积极利用YouTube、TikTok等国际平台进行推广，定期发布短视频、教程和创意内容，
+                    与全球观众保持持续互动。同时，通过线上讨论和社区活动，
+                    学习者可以分享心得、提出问题，形成开放的学习生态。
+                </p>
+                <p data-lang="en" class="leading-relaxed mb-4">
+                    The project actively utilizes international platforms such as YouTube and TikTok,
+                    regularly publishing short videos, tutorials, and creative content to maintain continuous engagement
+                    with global audiences. Through online discussions and community events, learners can share
+                    insights, ask questions, and create an open learning ecosystem.
+                </p>
+                <div class="mt-4">
+                    <a href="https://youtube.com" class="text-blue-500 hover:text-red-700">YouTube</a> |
+                    <a href="https://tiktok.com" class="text-blue-500 hover:text-red-700">TikTok</a>
+                </div>
+            </div>
         </div>
 
-        <!-- 单个返回按钮 -->
         <div class="mt-10 text-center">
             <a id="btnReturn" href="index.html"
                 class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">
@@ -208,16 +246,10 @@
     <script>
         function setLang(lang) {
             localStorage.setItem('lang', lang);
-
-            // 切换内容
             document.querySelectorAll('[data-lang]').forEach(el => {
                 el.classList.toggle('show', el.dataset.lang === lang);
             });
-
-            // 返回按钮文字
             document.getElementById('btnReturn').textContent = lang === 'zh' ? '← 返回首页' : '← Back to Home';
-
-            // 按钮高亮
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(lang === 'zh' ? 'btnZh' : 'btnEn').classList.add('active');
         }
@@ -228,7 +260,6 @@
         document.getElementById('btnZh').onclick = () => setLang('zh');
         document.getElementById('btnEn').onclick = () => setLang('en');
 
-        // 滚动显示导航
         window.addEventListener('scroll', function () {
             const nav = document.getElementById('nav');
             nav.style.opacity = window.scrollY > 50 ? '1' : '0';
