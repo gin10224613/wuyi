@@ -8,98 +8,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f3f4f6;
-            padding-top: 60px;
-        }
-        h1, h2 {
-            font-family: 'ZCOOL KuaiLe', cursive;
-        }
-        h1 {
-            background: linear-gradient(to right, #b91c1c, #ef4444);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 5px rgba(239, 68, 68, 0.2);
-        }
-        h1:hover {
-            text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-            opacity: 0;
-            transform: translateY(30px);
-            border: 2px solid transparent;
-            background-clip: padding-box, border-box;
-            background-origin: padding-box, border-box;
-            background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(to right, #ef4444, #b91c1c);
-        }
-        .card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
-            background: linear-gradient(135deg, #ffffff, #fff7f3);
-            background-image: linear-gradient(#ffffff, #fff7f3), linear-gradient(to right, #b91c1c, #991b1b);
-        }
-        .animate-fade-in {
-            animation: fadeInUp 0.8s forwards;
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .lang-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            border: 1px solid #b91c1c;
-        }
-        .lang-btn.active {
-            background: #b91c1c;
-            color: #fff;
-        }
-        [data-lang] {
-            display: none;
-        }
-        [data-lang].show {
-            display: block;
-        }
-        canvas {
-            display: block;
-            margin: 1rem auto;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-        .btn-return {
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            background: linear-gradient(to right, #b91c1c, #ef4444);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            display: inline-block;
-            text-decoration: none;
-        }
-        .btn-return:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
-            background: linear-gradient(to right, #991b1b, #dc2626);
-        }
-        .btn-return:active {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(185, 28, 28, 0.3);
-        }
-        #nav {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+        body { font-family: sans-serif; background-color: #f3f4f6; padding-top: 60px; }
+        h1, h2 { font-family: 'ZCOOL KuaiLe', cursive; }
+        h1 { background: linear-gradient(to right, #b91c1c, #ef4444); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 5px rgba(239, 68, 68, 0.2); }
+        h1:hover { text-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
+        .card { background: #ffffff; border-radius: 12px; padding: 2rem; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease; opacity: 0; transform: translateY(30px); border: 2px solid transparent; background-clip: padding-box, border-box; background-origin: padding-box, border-box; background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(to right, #ef4444, #b91c1c); }
+        .card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25); background: linear-gradient(135deg, #ffffff, #fff7f3); background-image: linear-gradient(#ffffff, #fff7f3), linear-gradient(to right, #b91c1c, #991b1b); }
+        .animate-fade-in { animation: fadeInUp 0.8s forwards; }
+        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        .lang-btn { padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; border: 1px solid #b91c1c; }
+        .lang-btn.active { background: #b91c1c; color: #fff; }
+        [data-lang] { display: none; }
+        [data-lang].show { display: block; }
+        canvas { display: block; margin: 1rem auto; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9; }
+        .btn-return { transition: transform 0.3s, box-shadow 0.3s, background 0.3s; background: linear-gradient(to right, #b91c1c, #ef4444); color: #fff; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 500; display: inline-block; text-decoration: none; }
+        .btn-return:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4); background: linear-gradient(to right, #991b1b, #dc2626); }
+        .btn-return:active { transform: translateY(-1px); box-shadow: 0 4px 8px rgba(185, 28, 28, 0.3); }
+        #nav { opacity: 0; transition: opacity 0.3s ease; }
     </style>
 </head>
 
@@ -127,19 +52,14 @@
             <div class="space-y-6">
                 <div class="card animate-fade-in" style="animation-delay: 0s;">
                     <p class="mb-6 leading-relaxed">
-                        数智体验模块致力于将数字技术与传统武术文化相结合，探索沉浸式、互动式的文化体验方式。
-                        在信息技术快速发展的背景下，传统文化的传播方式正在发生深刻变化，从单向展示转向多维互动。
-                        本模块通过引入虚拟现实、全景展示与交互设计，使用户能够以更加直观和参与性的方式接触武术文化，从而提升体验深度与传播效果。
+                        数智体验模块结合数字技术与中国传统武术，探索沉浸式互动文化体验。
+                        用户可以通过旋转、查看和了解各种武器的历史与技法，深入感受中华武术文化。
                     </p>
-
-                    <h2 class="text-2xl font-bold mb-4 text-red-700">数字兵器旋转展示</h2>
-                    <p class="mb-4 leading-relaxed">
-                        使用交互式数字技术展示传统兵器的旋转与运动，用户可通过鼠标或触摸操作观察不同角度和细节。
-                    </p>
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">互动兵器展示</h2>
+                    <p class="mb-4 leading-relaxed">点击下方按钮选择不同武器，查看旋转演示和详细介绍。</p>
                     <canvas id="weaponCanvas" width="400" height="200"></canvas>
-                    <div class="mt-4">
-                        <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2 rounded">长枪</button>
-                        <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2 rounded">长剑</button>
+                    <div id="weaponButtonsZh" class="mt-4 space-x-2">
+                        <!-- 按钮动态生成 -->
                     </div>
                     <p id="info" class="mt-4 text-gray-700"></p>
                 </div>
@@ -152,19 +72,14 @@
             <div class="space-y-6">
                 <div class="card animate-fade-in" style="animation-delay: 0s;">
                     <p class="mb-6 leading-relaxed">
-                        The Digital Experience module combines digital technology with traditional Chinese martial arts, exploring immersive and interactive cultural experiences.
-                        In the context of rapid technological development, traditional culture is moving from one-way display to multidimensional interaction.
-                        This module allows users to engage more intuitively and interactively with martial arts culture, enhancing the depth of experience and communication effect.
+                        The Digital Experience module combines digital technology with traditional Chinese martial arts, offering immersive and interactive cultural experiences.
+                        Users can explore historical weapons, see how they move, and understand their techniques and cultural significance.
                     </p>
-
-                    <h2 class="text-2xl font-bold mb-4 text-red-700">Interactive Weapon Rotation</h2>
-                    <p class="mb-4 leading-relaxed">
-                        Interactive digital display of traditional weapons allows users to rotate and view them from different angles.
-                    </p>
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">Interactive Weapon Display</h2>
+                    <p class="mb-4 leading-relaxed">Click the buttons below to select weapons, view rotation animation, and read detailed descriptions.</p>
                     <canvas id="weaponCanvasEn" width="400" height="200"></canvas>
-                    <div class="mt-4">
-                        <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2 rounded">Spear</button>
-                        <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2 rounded">Sword</button>
+                    <div id="weaponButtonsEn" class="mt-4 space-x-2">
+                        <!-- Buttons generated dynamically -->
                     </div>
                     <p id="infoEn" class="mt-4 text-gray-700"></p>
                 </div>
@@ -188,9 +103,7 @@
         const langElements = document.querySelectorAll('[data-lang]');
 
         function setLanguage(lang) {
-            langElements.forEach(el => {
-                el.classList.toggle('show', el.getAttribute('data-lang') === lang);
-            });
+            langElements.forEach(el => el.classList.toggle('show', el.getAttribute('data-lang') === lang));
             btnZh.classList.toggle('active', lang === 'zh');
             btnEn.classList.toggle('active', lang === 'en');
             if (returnBtn) {
@@ -201,54 +114,93 @@
 
         btnZh.addEventListener('click', () => setLanguage('zh'));
         btnEn.addEventListener('click', () => setLanguage('en'));
+        setLanguage(localStorage.getItem('lang') || 'zh');
 
-        const defaultLang = localStorage.getItem('lang') || 'zh';
-        setLanguage(defaultLang);
+        // 武器数据
+        const weapons = [
+            { id: 'spear', nameZh: '长枪', nameEn: 'Spear', color: '#b91c1c', infoZh: '长枪被称为“百兵之王”，攻击范围广，变化灵活。', infoEn: 'The spear is called the "King of Weapons", long reach and versatile.' },
+            { id: 'sword', nameZh: '长剑', nameEn: 'Sword', color: '#333', infoZh: '长剑象征君子之道，灵动精准，兼具实战与审美。', infoEn: 'The sword symbolizes the gentleman\'s way, agile and precise, practical and aesthetic.' },
+            { id: 'staff', nameZh: '棍', nameEn: 'Staff', color: '#a52a2a', infoZh: '棍是入门武器，简洁而多变，强调灵活性。', infoEn: 'The staff is a basic weapon, simple yet versatile, emphasizes agility.' },
+            { id: 'chainWhip', nameZh: '鞭', nameEn: 'Chain Whip', color: '#ff6600', infoZh: '鞭用于快速打击，动作连贯，讲究技巧。', infoEn: 'The chain whip is for rapid strikes, fluid movements, skillful technique.' },
+            { id: 'meteorHammer', nameZh: '流星锤', nameEn: 'Meteor Hammer', color: '#666', infoZh: '流星锤需双手操作，旋转力大，威力强。', infoEn: 'The meteor hammer is operated with two hands, spins with great force, powerful.' }
+        ];
 
-        // 兵器信息显示
-        function showInfo(type) {
+        // 生成按钮
+        function generateWeaponButtons() {
+            const zhContainer = document.getElementById('weaponButtonsZh');
+            const enContainer = document.getElementById('weaponButtonsEn');
+            weapons.forEach(w => {
+                const btnZh = document.createElement('button');
+                btnZh.innerText = w.nameZh;
+                btnZh.className = 'bg-blue-500 text-white p-2 m-1 rounded';
+                btnZh.onclick = () => showWeapon(w);
+                zhContainer.appendChild(btnZh);
+
+                const btnEn = document.createElement('button');
+                btnEn.innerText = w.nameEn;
+                btnEn.className = 'bg-blue-500 text-white p-2 m-1 rounded';
+                btnEn.onclick = () => showWeapon(w);
+                enContainer.appendChild(btnEn);
+            });
+        }
+
+        generateWeaponButtons();
+
+        let currentWeapon = weapons[0];
+
+        function showWeapon(weapon) {
+            currentWeapon = weapon;
+            updateInfo();
+        }
+
+        function updateInfo() {
             const lang = localStorage.getItem('lang') || 'zh';
-            let text = '';
-            if (type === "spear") {
-                text = lang === 'zh' ? "长枪被称为“百兵之王”，以其攻击范围广、变化灵活而著称，是中国传统武术中最具代表性的兵器之一。" :
-                    "The spear is called the 'King of Weapons', known for its long reach and versatility, a representative weapon in traditional Chinese martial arts.";
+            if (lang === 'zh') {
+                document.getElementById('info').innerText = currentWeapon.infoZh;
             } else {
-                text = lang === 'zh' ? "长剑象征着君子之道，强调灵动与精准，在武术体系中兼具实战与审美价值。" :
-                    "The sword symbolizes the gentleman's way, emphasizing agility and precision, with both practical and aesthetic value in martial arts.";
-            }
-            if(lang==='zh'){
-                document.getElementById('info').innerText = text;
-            }else{
-                document.getElementById('infoEn').innerText = text;
+                document.getElementById('infoEn').innerText = currentWeapon.infoEn;
             }
         }
 
-        // Canvas 兵器旋转演示
+        updateInfo();
+
+        // Canvas绘制
         function initCanvas(canvasId) {
             const canvas = document.getElementById(canvasId);
             if(!canvas) return;
             const ctx = canvas.getContext('2d');
             let angle = 0;
 
-            function drawWeapon() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            function draw() {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
                 ctx.save();
                 ctx.translate(canvas.width/2, canvas.height/2);
                 ctx.rotate(angle);
-                ctx.fillStyle = '#b91c1c';
+
+                // 绘制武器主体
+                ctx.fillStyle = currentWeapon.color;
                 ctx.fillRect(-10, -80, 20, 160);
-                ctx.fillStyle = '#333';
+
+                // 绘制头部
+                ctx.fillStyle = '#000';
                 ctx.fillRect(-15, -85, 30, 10);
+
                 ctx.restore();
                 angle += 0.01;
-                requestAnimationFrame(drawWeapon);
+                requestAnimationFrame(draw);
             }
-            drawWeapon();
+
+            draw();
         }
 
         initCanvas('weaponCanvas');
         initCanvas('weaponCanvasEn');
 
+        // 滚动显示导航栏
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('nav');
+            nav.style.opacity = window.scrollY > 50 ? '1' : '0';
+        });
     </script>
 
 </body>
