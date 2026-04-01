@@ -11,6 +11,7 @@
         body {
             font-family: sans-serif;
             background-color: #f3f4f6;
+            padding-top: 60px;
         }
 
         h1, h2 {
@@ -38,14 +39,8 @@
         }
 
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         a {
@@ -64,15 +59,65 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
         }
+
+        /* 导航和语言按钮 */
+        #nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-blur: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lang-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .lang-btn.active {
+            background: #b91c1c;
+            color: #fff;
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].show {
+            display: block;
+        }
     </style>
 </head>
 
 <body class="p-10">
 
-    <div class="max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold mb-8 text-center text-red-700">教育融合模块</h1>
+    <nav id="nav">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-red-700 font-bold text-lg font-['ZCOOL_KuaiLe']">武术文化项目</a>
+            <div class="flex gap-4 items-center">
+                <a href="index.html" class="text-gray-700 hover:text-red-700">首页</a>
+                <div class="flex gap-1">
+                    <div class="lang-btn" id="btnZh">中</div>
+                    <div class="lang-btn" id="btnEn">EN</div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-        <p class="mb-8 leading-relaxed text-gray-800 text-lg">
+    <div class="max-w-5xl mx-auto">
+
+        <!-- 中文内容 -->
+        <h1 data-lang="zh" class="text-4xl font-bold mb-8 text-center text-red-700">教育融合模块</h1>
+        <p data-lang="zh" class="mb-8 leading-relaxed text-gray-800 text-lg">
             本模块围绕“分层递进、循序渐进”的教育理念，
             构建覆盖小学、中学与大学三个阶段的武术文化课程体系。
             通过将传统文化内容与现代教学方法相结合，
@@ -80,10 +125,21 @@
             探索传统文化在当代教育体系中的创新路径。
         </p>
 
+        <!-- 英文内容 -->
+        <h1 data-lang="en" class="text-4xl font-bold mb-8 text-center text-red-700">Education Integration Module</h1>
+        <p data-lang="en" class="mb-8 leading-relaxed text-gray-800 text-lg">
+            This module follows the educational philosophy of "progressive layering and stepwise advancement",
+            establishing a martial arts culture curriculum covering primary, secondary, and university levels.
+            By combining traditional cultural content with modern teaching methods,
+            it integrates knowledge transfer, skill development, and value guidance,
+            exploring innovative pathways for traditional culture in contemporary education.
+        </p>
+
         <div class="space-y-6">
             <div class="card animate-fade-in" style="animation-delay: 0s;">
-                <h2 class="text-2xl font-bold mb-3 text-red-700">小学阶段：启蒙与体验</h2>
-                <p class="leading-relaxed text-gray-800">
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">小学阶段：启蒙与体验</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Primary Level: Enlightenment and Experience</h2>
+                <p data-lang="zh" class="leading-relaxed text-gray-800">
                     在小学阶段，课程设计以“兴趣导向”为核心，
                     通过游戏化教学与情境化体验，
                     将武术动作转化为富有趣味的学习内容。
@@ -93,51 +149,98 @@
                     更强调文化认知的初步建立，
                     使学生在潜移默化中形成对中华传统文化的认同感。
                 </p>
+                <p data-lang="en" class="leading-relaxed text-gray-800">
+                    At the primary level, courses are designed with an "interest-oriented" approach,
+                    using gamified teaching and situational experiences to make martial arts movements engaging.
+                    For example, role-playing, mimicking movements, and interactive tasks allow students
+                    to explore martial arts culture in a fun environment.
+                    This stage emphasizes not only physical coordination but also basic cultural awareness,
+                    fostering an early recognition of traditional Chinese culture.
+                </p>
             </div>
 
             <div class="card animate-fade-in" style="animation-delay: 0.2s;">
-                <h2 class="text-2xl font-bold mb-3 text-red-700">中学阶段：理解与思辨</h2>
-                <p class="leading-relaxed text-gray-800">
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">中学阶段：理解与思辨</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Secondary Level: Understanding and Critical Thinking</h2>
+                <p data-lang="zh" class="leading-relaxed text-gray-800">
                     进入中学阶段后，课程内容逐步深化，
                     从单纯的动作学习转向对文化内涵的理解与思考。
                     通过引入历史背景、经典案例与跨学科知识，
                     引导学生探讨武术与社会、伦理及审美之间的关系。
                     课堂形式可结合小组讨论、项目研究与展示汇报，
                     培养学生的批判性思维与表达能力。
-                    这一阶段的目标在于使学生能够在更高层次上理解传统文化，
-                    并形成独立的文化判断能力。
+                </p>
+                <p data-lang="en" class="leading-relaxed text-gray-800">
+                    At the secondary level, courses deepen, shifting from pure physical training to understanding cultural meaning.
+                    By introducing historical context, classical cases, and interdisciplinary knowledge,
+                    students explore the relationship between martial arts and society, ethics, and aesthetics.
+                    Class formats include group discussions, project-based learning, and presentations,
+                    fostering critical thinking and expressive skills.
                 </p>
             </div>
 
             <div class="card animate-fade-in" style="animation-delay: 0.4s;">
-                <h2 class="text-2xl font-bold mb-3 text-red-700">大学阶段：国际与创新</h2>
-                <p class="leading-relaxed text-gray-800">
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">大学阶段：国际与创新</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">University Level: International Perspective and Innovation</h2>
+                <p data-lang="zh" class="leading-relaxed text-gray-800">
                     在大学阶段，课程进一步拓展至国际传播与创新实践领域。
                     通过双语教学与跨文化比较，
                     帮助学生理解武术文化在全球语境中的传播路径与接受方式。
                     同时，引入数字媒体、视觉设计与创意表达等内容，
                     鼓励学生以多样化形式对传统文化进行再创造。
-                    这一阶段强调“输出能力”的培养，
-                    使学生不仅能够理解传统文化，
-                    更能够以国际化视角将其传播至更广阔的舞台。
                 </p>
+                <p data-lang="en" class="leading-relaxed text-gray-800">
+                    At the university level, courses expand into international dissemination and innovative practices.
+                    Bilingual teaching and cross-cultural comparisons help students understand how martial arts culture
+                    spreads and is received globally. Incorporating digital media, visual design, and creative expression,
+                    students are encouraged to reimagine traditional culture in diverse forms.
+                </p>
+            </div>
+
+            <div class="mt-8 card animate-fade-in" style="animation-delay: 0.6s;">
+                <h2 data-lang="zh" class="text-2xl font-bold mb-4 text-red-700">教学视频展示</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-4 text-red-700">Teaching Video Showcase</h2>
+                <video controls class="w-full rounded shadow">
+                    <source src="vedio3.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
             </div>
         </div>
 
-        <!-- 视频区域 -->
-        <div class="mt-8 card animate-fade-in" style="animation-delay: 0.6s;">
-            <h2 class="text-2xl font-bold mb-4 text-red-700">教学视频展示</h2>
-            <video controls class="w-full rounded shadow">
-                <source src="vedio3.mp4" type="video/mp4">
-                您的浏览器不支持视频播放
-            </video>
-        </div>
-
         <div class="mt-10 text-center">
-            <a href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">← 返回首页</a>
+            <a id="btnReturn" href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                ← 返回首页
+            </a>
         </div>
     </div>
 
+    <script>
+        // 语言切换
+        function setLang(lang) {
+            localStorage.setItem('lang', lang);
+
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.toggle('show', el.dataset.lang === lang);
+            });
+
+            document.getElementById('btnReturn').textContent = lang === 'zh' ? '← 返回首页' : '← Back to Home';
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(lang === 'zh' ? 'btnZh' : 'btnEn').classList.add('active');
+        }
+
+        const savedLang = localStorage.getItem('lang') || 'zh';
+        setLang(savedLang);
+
+        document.getElementById('btnZh').onclick = () => setLang('zh');
+        document.getElementById('btnEn').onclick = () => setLang('en');
+
+        // 滚动显示导航
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('nav');
+            nav.style.opacity = window.scrollY > 50 ? '1' : '0';
+        });
+    </script>
 </body>
 
 </html>
