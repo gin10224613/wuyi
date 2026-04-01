@@ -6,63 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>八段锦 - 文化挖掘库</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        h1, h2 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(135deg, #ffffff, #fff7f3);
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        a {
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #b91c1c;
+        }
+
+        .btn-return {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-return:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
+        }
+    </style>
 </head>
 
-<body class="p-10 bg-gray-100">
+<body class="p-10">
 
-    <h1 class="text-3xl font-bold mb-6">八段锦</h1>
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8 text-center text-red-700">八段锦</h1>
 
-    <div class="space-y-6">
-        <div class="bg-white p-6 rounded shadow">
-            <p class="leading-relaxed mb-6">
-                八段锦（Baduanjin，eight-section
-                brocade），是一种在中国古代发明并流传于民间的传统健身术，是中国古代导引术的一个重要分支，内容包括肢体运动和气息调理。其名称“八段锦”中的“八”代表八个动作，还表示其功法有多种要素，相互制约，相互联系，循环运转；“段”指分段练习；“锦”则指的是动作优美。八段锦其名最早见于南宋洪迈《夷坚志》，说明北宋时期已流传于世。现代流传的站式八段锦主要源自清代梁世昌《易筋经图说》附录。
-            </p>
+        <div class="space-y-6">
+            <div class="card animate-fade-in" style="animation-delay: 0s;">
+                <p class="leading-relaxed mb-6">
+                    八段锦（Baduanjin，eight-section
+                    brocade），是一种在中国古代发明并流传于民间的传统健身术，是中国古代导引术的一个重要分支，内容包括肢体运动和气息调理。其名称“八段锦”中的“八”代表八个动作，还表示其功法有多种要素，相互制约，相互联系，循环运转；“段”指分段练习；“锦”则指的是动作优美。八段锦其名最早见于南宋洪迈《夷坚志》，说明北宋时期已流传于世。现代流传的站式八段锦主要源自清代梁世昌《易筋经图说》附录。
+                </p>
 
-            <h2 class="text-xl font-bold mb-4">发展历程</h2>
-            <p class="leading-relaxed mb-4">
-                八段锦作为健身气功的典型代表可追溯至先秦时期，从导引术中可以看到它的雏形。魏晋许逊的《灵剑子引导子午记》中，已有八段锦形式锻炼方法的记载。北宋蒲虔贯著有《保生要录》，文中有5个动作类似立式八段锦功法。
-            </p>
-            <p class="leading-relaxed mb-4">
-                明清时期是八段锦走向成熟并得以广泛流传的关键时期。八段锦歌诀在这个时期产生，《新出保身图说·八段锦》首次以“八段锦”为名，并绘有图像，形成了较完整的动作套路。其七言歌诀为：“双手托天理三焦，左右开弓似射雕。调理脾胃须单举，五劳七伤向后瞧。摇头摆尾去心火，两手攀足固肾腰。攒拳怒目增气力，背后七颠百病消”。从此，传统八段锦动作被固定下来。
-            </p>
-            <p class="leading-relaxed mb-6">
-                20世纪50年代起，八段锦获政府重视。1982年被纳入医学类大学保健体育课程，2003年国家体育总局将其列为全国推广的健身气功。2020年国家体育总局气功中心公告明确八段锦为11种官方推广功法之一，2022年更被国家中医药管理局推荐为新冠病毒感染者居家康复方案。
-            </p>
+                <h2 class="text-2xl font-bold mb-4 text-red-700">发展历程</h2>
+                <p class="leading-relaxed mb-4">
+                    八段锦作为健身气功的典型代表可追溯至先秦时期，从导引术中可以看到它的雏形。魏晋许逊的《灵剑子引导子午记》中，已有八段锦形式锻炼方法的记载。北宋蒲虔贯著有《保生要录》，文中有5个动作类似立式八段锦功法。
+                </p>
+                <p class="leading-relaxed mb-4">
+                    明清时期是八段锦走向成熟并得以广泛流传的关键时期。八段锦歌诀在这个时期产生，《新出保身图说·八段锦》首次以“八段锦”为名，并绘有图像，形成了较完整的动作套路。其七言歌诀为：“双手托天理三焦，左右开弓似射雕。调理脾胃须单举，五劳七伤向后瞧。摇头摆尾去心火，两手攀足固肾腰。攒拳怒目增气力，背后七颠百病消”。从此，传统八段锦动作被固定下来。
+                </p>
+                <p class="leading-relaxed mb-6">
+                    20世纪50年代起，八段锦获政府重视。1982年被纳入医学类大学保健体育课程，2003年国家体育总局将其列为全国推广的健身气功。2020年国家体育总局气功中心公告明确八段锦为11种官方推广功法之一，2022年更被国家中医药管理局推荐为新冠病毒感染者居家康复方案。
+                </p>
 
-            <h2 class="text-xl font-bold mb-4">功法特点与分类</h2>
-            <p class="leading-relaxed mb-4">
-                八段锦按动作风格有南派、北派两类；根据动作形式可分为：站式八段锦和坐式八段锦。全套动作精炼，舒缓自然，运动量适度，适合于男女老少锻炼，但不同体质的人群在练习时应根据自身情况调整动作幅度和强度。
-            </p>
-            <p class="leading-relaxed mb-6">
-                其功法特点主要体现在：柔和连贯、松紧结合、神与形合等方面。练习时强调“形、气、神”的统一，通过缓慢而有节奏的肢体运动，配合呼吸调节与意念引导，实现对人体机能的全面调节。
-            </p>
+                <h2 class="text-2xl font-bold mb-4 text-red-700">功法特点与分类</h2>
+                <p class="leading-relaxed mb-4">
+                    八段锦按动作风格有南派、北派两类；根据动作形式可分为：站式八段锦和坐式八段锦。全套动作精炼，舒缓自然，运动量适度，适合于男女老少锻炼，但不同体质的人群在练习时应根据自身情况调整动作幅度和强度。
+                </p>
+                <p class="leading-relaxed mb-6">
+                    其功法特点主要体现在：柔和连贯、松紧结合、神与形合等方面。练习时强调“形、气、神”的统一，通过缓慢而有节奏的肢体运动，配合呼吸调节与意念引导，实现对人体机能的全面调节。
+                </p>
 
-            <h2 class="text-xl font-bold mb-4">应用与功效</h2>
-            <p class="leading-relaxed mb-4">
-                学术研究证实八段锦融合中医经络理论，长期练习八段锦不仅能够显著增强体质和提升生理机能，而且有助于缓解压力、增强心理韧性以及提升社交适应性，对心理健康具有积极影响。具体来说，其功效包括：
-            </p>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-                <li><strong>增强体质：</strong>改善心肺功能，增强肌肉力量和关节灵活性。</li>
-                <li><strong>调节情绪：</strong>缓解精神压力，改善睡眠质量，提升心理韧性。</li>
-                <li><strong>促进消化：</strong>通过特定动作按摩内脏，促进消化液分泌和胃肠蠕动。</li>
-                <li><strong>延缓衰老：</strong>促进气血运行，改善新陈代谢，增强身体柔韧性。</li>
-                <li><strong>疾病防治：</strong>对高血压、糖尿病、骨关节病等慢性疾病有辅助康复作用。</li>
-            </ul>
+                <h2 class="text-2xl font-bold mb-4 text-red-700">应用与功效</h2>
+                <p class="leading-relaxed mb-4">
+                    学术研究证实八段锦融合中医经络理论，长期练习八段锦不仅能够显著增强体质和提升生理机能，而且有助于缓解压力、增强心理韧性以及提升社交适应性，对心理健康具有积极影响。具体来说，其功效包括：
+                </p>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><strong>增强体质：</strong>改善心肺功能，增强肌肉力量和关节灵活性。</li>
+                    <li><strong>调节情绪：</strong>缓解精神压力，改善睡眠质量，提升心理韧性。</li>
+                    <li><strong>促进消化：</strong>通过特定动作按摩内脏，促进消化液分泌和胃肠蠕动。</li>
+                    <li><strong>延缓衰老：</strong>促进气血运行，改善新陈代谢，增强身体柔韧性。</li>
+                    <li><strong>疾病防治：</strong>对高血压、糖尿病、骨关节病等慢性疾病有辅助康复作用。</li>
+                </ul>
 
-            <h2 class="text-xl font-bold mb-4">文化内涵</h2>
-            <p class="leading-relaxed mb-6">
-                八段锦不仅是一种健身方法，更蕴含着深厚的中国传统文化内涵。它融合了中医的经络学说、道家的导引养生思想、儒家的中庸和谐理念以及佛家的禅定智慧。通过练习八段锦，人们不仅能够强身健体，更能在一呼一吸、一招一式中体会到中国传统文化的博大精深，实现身体与精神的和谐统一。
-            </p>
+                <h2 class="text-2xl font-bold mb-4 text-red-700">文化内涵</h2>
+                <p class="leading-relaxed mb-6">
+                    八段锦不仅是一种健身方法，更蕴含着深厚的中国传统文化内涵。它融合了中医的经络学说、道家的导引养生思想、儒家的中庸和谐理念以及佛家的禅定智慧。通过练习八段锦，人们不仅能够强身健体，更能在一呼一吸、一招一式中体会到中国传统文化的博大精深，实现身体与精神的和谐统一。
+                </p>
 
-            <!-- 插入八段锦动作图 -->
-            <img src="https://aka.doubaocdn.com/s/6qIx1wIgtM" alt="八段锦全套动作"
-                class="rounded shadow w-full max-w-2xl mx-auto">
+                <!-- 插入八段锦动作图 -->
+                <img src="https://aka.doubaocdn.com/s/6qIx1wIgtM" alt="八段锦全套动作"
+                    class="rounded shadow w-full max-w-2xl mx-auto">
+            </div>
         </div>
-    </div>
 
-    <div class="mt-8">
-        <a href="culture.html" class="text-blue-600 hover:text-blue-800 font-medium">← 返回文化挖掘库</a>
+        <div class="mt-10 text-center">
+            <a href="culture.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">← 返回文化挖掘库</a>
+        </div>
     </div>
 
 </body>
