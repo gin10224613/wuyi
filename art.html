@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>艺术表达</title>
+    <title>艺术表达 - 武术文化项目</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: sans-serif;
             background-color: #f3f4f6;
-            padding-top: 60px;
+            padding-top: 70px;
         }
-
         h1, h2 {
             font-family: 'ZCOOL KuaiLe', cursive;
         }
-
         h1 {
             background: linear-gradient(to right, #b91c1c, #ef4444);
             -webkit-background-clip: text;
@@ -26,11 +23,9 @@
             text-shadow: 0 0 5px rgba(239, 68, 68, 0.2);
             transition: text-shadow 0.3s ease;
         }
-
         h1:hover {
             text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
         }
-
         .card {
             background: #ffffff;
             border-radius: 12px;
@@ -42,180 +37,193 @@
             border: 2px solid transparent;
             background-clip: padding-box, border-box;
             background-origin: padding-box, border-box;
-            background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(to right, #ef4444, #b91c1c);
+            background-image: linear-gradient(#fff, #fff), linear-gradient(to right, #ef4444, #b91c1c);
         }
-
         .card:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
-            background: linear-gradient(135deg, #ffffff, #fff7f3);
-            background-image: linear-gradient(#ffffff, #fff7f3), linear-gradient(to right, #b91c1c, #991b1b);
+            background: linear-gradient(135deg, #fff, #fff7f3);
+            background-image: linear-gradient(#fff, #fff7f3), linear-gradient(to right, #b91c1c, #991b1b);
         }
-
         .animate-fade-in {
             animation: fadeInUp 0.8s forwards;
         }
-
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-
         p {
             opacity: 0;
             animation: fadeInText 1s forwards;
             animation-delay: 0.3s;
         }
-
         @keyframes fadeInText {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
-
         .card p {
             animation-delay: calc(0.3s + var(--card-delay, 0s));
         }
-
-        img,
-        video {
+        img, video {
             transition: transform 0.3s ease;
         }
-
-        img:hover,
-        video:hover {
+        img:hover, video:hover {
             transform: scale(1.03);
         }
-
         a {
             transition: color 0.3s;
         }
-
         a:hover {
             color: #b91c1c;
         }
-
         .btn-return {
             transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
             background: linear-gradient(to right, #b91c1c, #ef4444);
         }
-
         .btn-return:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
+            box-shadow: 0 8px 15px rgba(185,28,28,0.4);
             background: linear-gradient(to right, #991b1b, #dc2626);
         }
-
         .btn-return:active {
             transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(185, 28, 28, 0.3);
+            box-shadow: 0 4px 8px rgba(185,28,28,0.3);
         }
-
         #nav {
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+        .lang-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .lang-btn.active {
+            background: #b91c1c;
+            color: white;
+        }
+        [data-lang] {
+            display: none;
+        }
+        [data-lang].show {
+            display: block;
+            animation: fadeIn 0.4s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
-
 <body class="p-10">
 
-    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm py-2 px-4 z-50" id="nav">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-red-700 font-bold text-lg font-['ZCOOL_KuaiLe']">武术文化项目</a>
-            <div class="flex gap-4">
-                <a href="index.html" class="text-gray-700 hover:text-red-700">首页</a>
-                <a href="culture.html" class="text-gray-700 hover:text-red-700">文化库</a>
-            </div>
+<!-- 顶部导航 + 语言切换 -->
+<nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow py-3 px-4 z-50" id="nav">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-red-700 font-bold text-lg font-['ZCOOL_KuaiLe']">武术文化项目</a>
+        <div class="flex gap-3 items-center">
+            <a href="index.html" class="text-gray-700 hover:text-red-700">首页</a>
+            <a href="culture.html" class="text-gray-700 hover:text-red-700">文化库</a>
+            <span class="w-px h-4 bg-gray-300"></span>
+            <span class="lang-btn" id="zhBtn">中</span>
+            <span class="lang-btn" id="enBtn">EN</span>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <div class="max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold mb-8 text-center">艺术表达区</h1>
+<div class="max-w-5xl mx-auto">
+    <!-- 中文 -->
+    <h1 data-lang="zh" class="text-4xl font-bold mb-8 text-center">艺术表达区</h1>
+    <!-- 英文 -->
+    <h1 data-lang="en" class="text-4xl font-bold mb-8 text-center">Art Expression</h1>
 
-        <p class="mb-8 leading-relaxed text-gray-800 text-lg">
-            艺术表达模块旨在通过视觉设计、叙事建构与多媒体呈现，
-            探索传统武术文化在当代语境中的创新表达方式。
-            相较于单纯的知识传播，本模块更加注重“感性体验”与“文化感染力”，
-            通过IP形象塑造以及舞台艺术呈现，
-            将原本相对抽象的文化内容转化为可感知、可传播、可参与的艺术形式，
-            从而增强受众的情感共鸣与文化认同。
+    <p data-lang="zh" class="mb-8 leading-relaxed text-gray-800 text-lg">
+        艺术表达模块旨在通过视觉设计、叙事建构与多媒体呈现，探索传统武术文化在当代语境中的创新表达方式。
+    </p>
+    <p data-lang="en" class="mb-8 leading-relaxed text-gray-800 text-lg">
+        The art expression module explores innovative ways to present traditional martial arts culture in contemporary context.
+    </p>
+
+    <!-- IP展示 -->
+    <div class="card animate-fade-in mb-8" style="animation-delay: 0s; --card-delay: 0s;">
+        <h2 data-lang="zh" class="text-2xl font-bold mb-4 text-red-700">项目IP形象：“极锦”与“常武”</h2>
+        <h2 data-lang="en" class="text-2xl font-bold mb-4 text-red-700">Project IP: Ji Jin & Chang Wu</h2>
+        <p data-lang="zh" class="leading-relaxed mb-4">
+            “极锦”与“常武”是本项目原创设计的核心文化IP形象，分别象征武术中的“柔”与“刚”、“养生”与“技击”两种不同维度。
         </p>
-
-        <!-- IP展示 -->
-        <div class="card animate-fade-in mb-8" style="animation-delay: 0s; --card-delay: 0s;">
-            <h2 class="text-2xl font-bold mb-4 text-red-700">项目IP形象：“极锦”与“常武”</h2>
-            <p class="leading-relaxed mb-4">
-                “极锦”与“常武”是本项目原创设计的核心文化IP形象，
-                分别象征武术中的“柔”与“刚”、“养生”与“技击”两种不同维度。
-                在视觉设计上，“极锦”以流动的线条与柔和的色彩为主，
-                体现太极与养生功法的内在节奏；
-                “常武”则采用更加鲜明的结构与对比，
-                强调力量感与动作张力。
-                通过这两个IP形象的互动与组合，
-                构建出一个既具传统文化内涵又符合当代审美的视觉体系，
-                为后续的传播奠定基础。
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <img src="images/jijin.png" class="rounded shadow w-full">
-                <img src="images/changwu.png" class="rounded shadow w-full">
-                <img src="images/banner.jpg" class="rounded shadow w-full">
-            </div>
-        </div>
-
-        <!-- 舞台 -->
-        <div class="card animate-fade-in" style="animation-delay: 0.2s; --card-delay: 0.2s;">
-            <h2 class="text-2xl font-bold mb-4 text-red-700">舞台艺术与影像表达</h2>
-            <p class="leading-relaxed mb-6">
-                将武术与舞台艺术相结合，
-                通过编排具有叙事性的舞台作品，
-                将动作、音乐与灯光进行综合设计，
-                形成具有视觉冲击力与情感张力的艺术表达形式。
-                此外，通过影像记录与短视频创作，
-                将舞台作品转化为可在线传播的内容，
-                进一步拓展其传播范围。
-                这一部分不仅是对传统武术的一种再创作，
-                也是对其审美价值与表现潜力的深入挖掘。
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- 视频1 -->
-                <video controls class="w-full rounded shadow">
-                    <source src="vedio1.mp4" type="video/mp4">
-                    您的浏览器不支持视频播放
-                </video>
-
-                <!-- 视频2 -->
-                <video controls class="w-full rounded shadow">
-                    <source src="vedio2.mp4" type="video/mp4">
-                    您的浏览器不支持视频播放
-                </video>
-            </div>
-        </div>
-
-        <div class="mt-10 text-center">
-            <a href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">← 返回首页</a>
+        <p data-lang="en" class="leading-relaxed mb-4">
+            "Ji Jin" and "Chang Wu" are original IP images, symbolizing the "soft" and "hard", "health" and "combat" in martial arts.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <img src="images/jijin.png" class="rounded shadow w-full">
+            <img src="images/changwu.png" class="rounded shadow w-full">
+            <img src="images/banner.jpg" class="rounded shadow w-full">
         </div>
     </div>
 
-    <script>
-        window.addEventListener('scroll', function () {
-            const nav = document.getElementById('nav');
-            nav.style.opacity = window.scrollY > 50 ? '1' : '0';
-        });
-    </script>
-</body>
+    <!-- 舞台 -->
+    <div class="card animate-fade-in" style="animation-delay: 0.2s; --card-delay: 0.2s;">
+        <h2 data-lang="zh" class="text-2xl font-bold mb-4 text-red-700">舞台艺术与影像表达</h2>
+        <h2 data-lang="en" class="text-2xl font-bold mb-4 text-red-700">Stage Art & Visual Expression</h2>
+        <p data-lang="zh" class="leading-relaxed mb-6">
+            将武术与舞台艺术相结合，通过编排具有叙事性的舞台作品，将动作、音乐与灯光进行综合设计，形成具有视觉冲击力与情感张力的艺术表达形式。
+        </p>
+        <p data-lang="en" class="leading-relaxed mb-6">
+            Combining martial arts with stage art, creating narrative performances with movement, music and lighting.
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+            <video controls class="w-full rounded shadow">
+                <source src="vedio1.mp4" type="video/mp4">
+            </video>
+            <video controls class="w-full rounded shadow">
+                <source src="vedio2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
 
+    <div class="mt-10 text-center">
+        <a data-lang="zh" href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium">← 返回首页</a>
+        <a data-lang="en" href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium">← Back to Home</a>
+    </div>
+</div>
+
+<script>
+// 语言切换（全站同步）
+const zhBtn = document.getElementById('zhBtn');
+const enBtn = document.getElementById('enBtn');
+const zhElements = document.querySelectorAll('[data-lang="zh"]');
+const enElements = document.querySelectorAll('[data-lang="en"]');
+
+function setLang(lang) {
+    localStorage.setItem('lang', lang);
+    if (lang === 'zh') {
+        zhElements.forEach(el => el.classList.add('show'));
+        enElements.forEach(el => el.classList.remove('show'));
+        zhBtn.classList.add('active');
+        enBtn.classList.remove('active');
+    } else {
+        enElements.forEach(el => el.classList.add('show'));
+        zhElements.forEach(el => el.classList.remove('show'));
+        enBtn.classList.add('active');
+        zhBtn.classList.remove('active');
+    }
+}
+
+zhBtn.addEventListener('click', () => setLang('zh'));
+enBtn.addEventListener('click', () => setLang('en'));
+
+// 初始化加载保存的语言
+const savedLang = localStorage.getItem('lang') || 'zh';
+setLang(savedLang);
+
+// 滚动显示导航
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    nav.style.opacity = window.scrollY > 40 ? '1' : '0';
+});
+</script>
+</body>
 </html>
