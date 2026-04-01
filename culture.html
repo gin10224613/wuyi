@@ -54,6 +54,7 @@
             box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
         }
 
+        /* 导航栏 */
         #nav {
             position: fixed;
             top: 0;
@@ -93,6 +94,7 @@
 
 <body class="p-10">
 
+    <!-- 导航栏 -->
     <nav id="nav">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <a href="index.html" class="text-red-700 font-bold text-lg font-['ZCOOL_KuaiLe']">武术文化项目</a>
@@ -109,11 +111,10 @@
     <div class="max-w-5xl mx-auto">
 
         <!-- 中文内容 -->
-        <div data-lang="zh" class="show">
+        <div data-lang="zh">
             <h1 class="text-4xl font-bold mb-12 text-center text-red-700">文化挖掘库</h1>
 
             <div class="space-y-10">
-                <!-- 十八般武艺 -->
                 <div class="card animate-fade-in" style="animation-delay: 0s;">
                     <a href="shibabanyi.html" class="block">
                         <h2 class="text-2xl font-bold mb-3 text-red-700 hover:text-red-900">十八般武艺</h2>
@@ -123,7 +124,6 @@
                     </a>
                 </div>
 
-                <!-- 八段锦 -->
                 <div class="card animate-fade-in" style="animation-delay: 0.2s;">
                     <a href="baduanjin.html" class="block">
                         <h2 class="text-2xl font-bold mb-3 text-red-700 hover:text-red-900">八段锦</h2>
@@ -133,7 +133,6 @@
                     </a>
                 </div>
 
-                <!-- 非遗传承人口述史 -->
                 <div class="card animate-fade-in" style="animation-delay: 0.4s;">
                     <h2 class="text-2xl font-bold mb-3 text-red-700">非遗传承人口述史</h2>
                     <p class="leading-relaxed text-gray-800">
@@ -141,7 +140,6 @@
                     </p>
                 </div>
 
-                <!-- 数字基因库 -->
                 <div class="card animate-fade-in" style="animation-delay: 0.6s;">
                     <h2 class="text-2xl font-bold mb-3 text-red-700">数字基因库</h2>
                     <p class="leading-relaxed text-gray-800">
@@ -192,37 +190,38 @@
 
         <!-- 返回按钮 -->
         <div class="mt-12 text-center">
-            <a href="index.html" 
-               class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors"
-               data-text-zh="← 返回首页"
-               data-text-en="← Back to Home">← 返回首页</a>
+            <a id="btnReturn" href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                ← 返回首页
+            </a>
         </div>
     </div>
 
     <script>
-        const btnZh = document.getElementById('btnZh');
-        const btnEn = document.getElementById('btnEn');
-        const returnBtn = document.querySelector('.btn-return');
-        const langElements = document.querySelectorAll('[data-lang]');
-
-        function setLanguage(lang) {
-            langElements.forEach(el => {
-                el.classList.toggle('show', el.getAttribute('data-lang') === lang);
-            });
-            btnZh.classList.toggle('active', lang === 'zh');
-            btnEn.classList.toggle('active', lang === 'en');
-            if (returnBtn) {
-                returnBtn.textContent = returnBtn.getAttribute(`data-text-${lang}`);
-            }
+        // 语言切换逻辑
+        function setLang(lang) {
             localStorage.setItem('lang', lang);
+
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.toggle('show', el.dataset.lang === lang);
+            });
+
+            document.getElementById('btnReturn').textContent = lang === 'zh' ? '← 返回首页' : '← Back to Home';
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(lang === 'zh' ? 'btnZh' : 'btnEn').classList.add('active');
         }
 
-        btnZh.addEventListener('click', () => setLanguage('zh'));
-        btnEn.addEventListener('click', () => setLanguage('en'));
+        const savedLang = localStorage.getItem('lang') || 'zh';
+        setLang(savedLang);
 
-        const defaultLang = localStorage.getItem('lang') || 'zh';
-        setLanguage(defaultLang);
+        document.getElementById('btnZh').onclick = () => setLang('zh');
+        document.getElementById('btnEn').onclick = () => setLang('en');
+
+        // 滚动显示导航
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('nav');
+            nav.style.opacity = window.scrollY > 50 ? '1' : '0';
+        });
     </script>
-
 </body>
 </html>
