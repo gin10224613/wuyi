@@ -57,14 +57,8 @@
         }
 
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         p {
@@ -118,6 +112,21 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+
+        /* 语言切换按钮样式 */
+        .lang-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .lang-btn.active {
+            background: #b91c1c;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -126,17 +135,29 @@
     <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm py-2 px-4 z-50" id="nav">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <a href="index.html" class="text-red-700 font-bold text-lg font-['ZCOOL_KuaiLe']">武术文化项目</a>
-            <div class="flex gap-4">
+            <div class="flex items-center gap-4">
                 <a href="index.html" class="text-gray-700 hover:text-red-700">首页</a>
                 <a href="culture.html" class="text-gray-700 hover:text-red-700">文化库</a>
+                <div class="flex gap-1">
+                    <div class="lang-btn" id="btnZh">中</div>
+                    <div class="lang-btn" id="btnEn">EN</div>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold mb-8 text-center">Global Communication</h1>
+        <!-- 标题 -->
+        <h1 data-lang="zh" class="text-4xl font-bold mb-8 text-center">全球传播</h1>
+        <h1 data-lang="en" class="text-4xl font-bold mb-8 text-center">Global Communication</h1>
 
-        <p class="mb-8 leading-relaxed text-gray-800 text-lg">
+        <!-- 段落 -->
+        <p data-lang="zh" class="mb-8 leading-relaxed text-gray-800 text-lg">
+            本模块关注中国武术文化的国际传播。在全球化语境下，传统文化不再局限于国界，
+            而是参与跨文化对话与再解读。通过构建多语言传播体系，
+            本项目旨在将武术文化转化为全球受众可理解、可参与、且有意义的形式。
+        </p>
+        <p data-lang="en" class="mb-8 leading-relaxed text-gray-800 text-lg">
             This module focuses on the international dissemination of Chinese martial arts culture.
             In the context of globalization, traditional culture is no longer confined within national boundaries,
             but participates in cross-cultural dialogue and reinterpretation.
@@ -145,44 +166,46 @@
             engaging, and meaningful to global audiences.
         </p>
 
+        <!-- 卡片内容 -->
         <div class="space-y-6">
             <div class="card animate-fade-in" style="animation-delay: 0s; --card-delay: 0s;">
-                <h2 class="text-2xl font-bold mb-3 text-red-700">Multilingual Educational Resources</h2>
-                <p class="leading-relaxed">
-                    We provide bilingual and multilingual learning materials,
-                    including instructional videos, illustrated e-books, and cultural guides.
-                    These resources are designed to lower the entry barrier for international learners,
-                    allowing them to understand not only the physical movements,
-                    but also the philosophical and cultural meanings behind them.
-                    Through structured content design,
-                    learners from different cultural backgrounds can gradually build their knowledge system.
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">多语言教育资源</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Multilingual Educational Resources</h2>
+                <p data-lang="zh" class="leading-relaxed">
+                    提供双语及多语学习资料，包括教学视频、图文电子书和文化指南，
+                    帮助国际学习者理解动作及其背后的哲学文化意义。
+                </p>
+                <p data-lang="en" class="leading-relaxed">
+                    We provide bilingual and multilingual learning materials, including instructional videos,
+                    illustrated e-books, and cultural guides to help international learners understand
+                    both the movements and the philosophical and cultural meanings behind them.
                 </p>
             </div>
 
             <div class="card animate-fade-in" style="animation-delay: 0.2s; --card-delay: 0.2s;">
-                <h2 class="text-2xl font-bold mb-3 text-red-700">Cross-cultural Communication Strategy</h2>
-                <p class="leading-relaxed">
-                    Instead of directly translating content,
-                    this project adopts a cross-cultural adaptation approach,
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">跨文化传播策略</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Cross-cultural Communication Strategy</h2>
+                <p data-lang="zh" class="leading-relaxed">
+                    通过跨文化改编而非直接翻译，将武术文化以符合全球受众的方式重新演绎，
+                    结合故事讲述、视觉媒体和现代叙事，增强文化可理解性和相关性。
+                </p>
+                <p data-lang="en" class="leading-relaxed">
+                    Instead of directly translating content, this project adopts a cross-cultural adaptation approach,
                     reframing martial arts culture in ways that resonate with global audiences.
-                    By combining storytelling, visual media, and contemporary narratives,
-                    traditional elements are reinterpreted to align with modern values and aesthetics.
-                    This strategy enhances both accessibility and cultural relevance.
+                    By combining storytelling, visual media, and contemporary narratives, traditional elements are reinterpreted.
                 </p>
             </div>
 
             <div class="card animate-fade-in" style="animation-delay: 0.4s; --card-delay: 0.4s;">
-                <h2 class="text-2xl font-bold mb-3 text-red-700">Social Media and Global Platforms</h2>
-                <p class="leading-relaxed mb-4">
-                    To expand its global reach,
-                    the project actively utilizes international platforms such as YouTube and TikTok.
-                    Short-form videos, tutorials, and creative content are distributed regularly,
-                    creating continuous engagement with audiences worldwide.
-                    These platforms not only serve as channels for dissemination,
-                    but also as spaces for interaction and feedback,
-                    enabling a dynamic and evolving communication process.
+                <h2 data-lang="zh" class="text-2xl font-bold mb-3 text-red-700">社交媒体与全球平台</h2>
+                <h2 data-lang="en" class="text-2xl font-bold mb-3 text-red-700">Social Media and Global Platforms</h2>
+                <p data-lang="zh" class="leading-relaxed mb-4">
+                    积极利用国际平台如YouTube和TikTok发布短视频、教程和创意内容，扩大全球影响力。
                 </p>
-
+                <p data-lang="en" class="leading-relaxed mb-4">
+                    Actively utilize international platforms such as YouTube and TikTok to publish short videos,
+                    tutorials, and creative content, expanding global reach.
+                </p>
                 <div class="mt-4">
                     <a href="https://youtube.com" class="text-blue-500 hover:text-red-700">YouTube</a> |
                     <a href="https://tiktok.com" class="text-blue-500 hover:text-red-700">TikTok</a>
@@ -190,12 +213,34 @@
             </div>
         </div>
 
+        <!-- 返回按钮 -->
         <div class="mt-10 text-center">
-            <a href="index.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">← 返回首页</a>
+            <a href="index.html" id="btnReturn" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">← 返回首页</a>
         </div>
     </div>
 
     <script>
+        // 语言切换逻辑
+        function setLang(lang) {
+            localStorage.setItem('lang', lang);
+            document.querySelectorAll('[data-lang]').forEach(el => el.style.display = 'none');
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.style.display = 'block');
+
+            // 更新按钮文字
+            document.getElementById('btnReturn').textContent = lang === 'zh' ? '← 返回首页' : '← Back to Home';
+
+            // 高亮语言按钮
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(lang === 'zh' ? 'btnZh' : 'btnEn').classList.add('active');
+        }
+
+        const savedLang = localStorage.getItem('lang') || 'zh';
+        setLang(savedLang);
+
+        document.getElementById('btnZh').onclick = () => setLang('zh');
+        document.getElementById('btnEn').onclick = () => setLang('en');
+
+        // 滚动显示导航
         window.addEventListener('scroll', function () {
             const nav = document.getElementById('nav');
             nav.style.opacity = window.scrollY > 50 ? '1' : '0';
