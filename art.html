@@ -128,26 +128,6 @@
             transition: opacity 0.3s ease;
         }
 
-        /* 语言切换样式 */
-        [data-lang] {
-            display: none;
-        }
-
-        [data-lang].show {
-            display: block;
-            animation: fadeText 0.4s forwards;
-        }
-
-        @keyframes fadeText {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
         .lang-btn {
             padding: 4px 10px;
             border-radius: 6px;
@@ -270,39 +250,37 @@
             </div>
         </div>
 
-        <!-- 优化后的返回首页按钮 -->
+        <!-- 单个返回按钮 -->
         <div class="mt-10 text-center">
-            <a href="index.html"
-               class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors"
-               data-lang="zh">← 返回首页</a>
-            <a href="index.html"
-               class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors"
-               data-lang="en">← Back to Home</a>
+            <a id="btnReturn" href="index.html"
+                class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">
+                ← 返回首页
+            </a>
         </div>
     </div>
 
     <script>
-        // 语言切换（全站同步）
+        // 语言切换
         function setLang(lang) {
             localStorage.setItem('lang', lang);
-            // 隐藏所有语言内容
-            document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('show'));
-            // 显示当前语言
-            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('show'));
-            // 按钮高亮
+
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+            });
+
+            // 返回按钮文字随语言
+            document.getElementById('btnReturn').textContent = lang === 'zh' ? '← 返回首页' : '← Back to Home';
+
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(lang === 'zh' ? 'btnZh' : 'btnEn').classList.add('active');
         }
 
-        // 初始化读取本地存储
         const savedLang = localStorage.getItem('lang') || 'zh';
         setLang(savedLang);
 
-        // 绑定按钮
         document.getElementById('btnZh').onclick = () => setLang('zh');
         document.getElementById('btnEn').onclick = () => setLang('en');
 
-        // 滚动显示导航
         window.addEventListener('scroll', function () {
             const nav = document.getElementById('nav');
             nav.style.opacity = window.scrollY > 50 ? '1' : '0';
