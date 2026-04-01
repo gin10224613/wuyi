@@ -6,13 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>武韵传四海</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+        /* 标题字体，正文保持原样 */
+        h1, h2, h3 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+        }
+
+        /* 导航悬停效果 */
+        nav a {
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+        }
+
+        /* 卡片悬停效果 */
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Banner文字阴影增强可读性 */
+        .banner-title {
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+        .banner-text {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
 
-    <nav class="bg-black text-white p-4 flex justify-between">
-        <h1 class="text-xl font-bold">武韵传四海</h1>
-        <div class="space-x-4">
+    <nav class="bg-black text-white p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">武韵传四海</h1>
+        <div class="space-x-6">
             <a href="culture.html">文化挖掘</a>
             <a href="education.html">教育融合</a>
             <a href="art.html">艺术表达</a>
@@ -23,10 +58,9 @@
 
     <section class="relative text-center py-32 bg-cover bg-center" style="background-image:url('images/banner.jpg')">
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-
         <div class="relative z-10 px-4">
-            <h2 class="text-5xl font-bold text-white">武韵传四海</h2>
-            <p class="text-white mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
+            <h2 class="banner-title text-5xl font-bold text-yellow-400">武韵传四海</h2>
+            <p class="banner-text text-white mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
                 “武韵传四海”项目立足中华优秀传统文化，以中国武术这一兼具身体实践与精神内涵的文化形态为核心载体，
                 融合文化挖掘、教育创新、艺术表达与数字传播等多维路径，
                 构建一个跨学科、跨媒介、跨文化的综合传播平台。
@@ -50,51 +84,51 @@
         </p>
     </section>
 
-    <section class="grid md:grid-cols-3 gap-6 p-10">
+    <section class="grid md:grid-cols-3 gap-6 p-10 max-w-6xl mx-auto">
 
-        <div class="bg-white p-6 rounded shadow">
-            <h3 class="text-xl font-bold">文化挖掘库</h3>
+        <div class="card bg-white p-6 rounded shadow">
+            <h3 class="text-xl font-bold text-red-700">文化挖掘库</h3>
             <p class="mt-2">
                 系统梳理武术历史脉络与文化内涵，整合传统文献与现代研究成果，
                 构建结构化、可视化的文化知识体系。
             </p>
-            <a href="culture.html" >进入 →</a>
+            <a href="culture.html" class="text-red-700 font-semibold mt-2 inline-block">进入 →</a>
         </div>
 
-        <div class="bg-white p-6 rounded shadow">
-            <h3 class="text-xl font-bold">教育融合</h3>
+        <div class="card bg-white p-6 rounded shadow">
+            <h3 class="text-xl font-bold text-red-700">教育融合</h3>
             <p class="mt-2">
                 围绕不同学段设计课程内容，推动武术文化融入现代教育体系，
                 实现知识传授与价值引导的统一。
             </p>
-            <a href="education.html">进入 →</a>
+            <a href="education.html" class="text-red-700 font-semibold mt-2 inline-block">进入 →</a>
         </div>
 
-        <div class="bg-white p-6 rounded shadow">
-            <h3 class="text-xl font-bold">艺术表达</h3>
+        <div class="card bg-white p-6 rounded shadow">
+            <h3 class="text-xl font-bold text-red-700">艺术表达</h3>
             <p class="mt-2">
                 通过IP设计、视觉艺术与舞台演绎，
                 探索传统文化的当代表达方式。
             </p>
-            <a href="art.html">进入 →</a>
+            <a href="art.html" class="text-red-700 font-semibold mt-2 inline-block">进入 →</a>
         </div>
 
-        <div class="bg-white p-6 rounded shadow">
-            <h3 class="text-xl font-bold">国际传播</h3>
+        <div class="card bg-white p-6 rounded shadow">
+            <h3 class="text-xl font-bold text-red-700">国际传播</h3>
             <p class="mt-2">
                 构建多语种传播体系，
                 推动中华武术文化走向全球语境。
             </p>
-            <a href="international.html">进入 →</a>
+            <a href="international.html" class="text-red-700 font-semibold mt-2 inline-block">进入 →</a>
         </div>
 
-        <div class="bg-white p-6 rounded shadow">
-            <h3 class="text-xl font-bold">数智体验</h3>
+        <div class="card bg-white p-6 rounded shadow">
+            <h3 class="text-xl font-bold text-red-700">数智体验</h3>
             <p class="mt-2">
                 结合数字技术与交互设计，
                 打造沉浸式文化体验空间。
             </p>
-            <a href="digital.html">进入 →</a>
+            <a href="digital.html" class="text-red-700 font-semibold mt-2 inline-block">进入 →</a>
         </div>
 
     </section>
