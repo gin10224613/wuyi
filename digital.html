@@ -7,37 +7,54 @@
     <title>数智体验</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        [data-lang] { display: none; }
-        [data-lang].show { display: block; }
-
-        .lang-btn {
-            padding: 4px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            border: 1px solid #FFD700;
+        .translate {
+            display: none;
         }
 
-        .lang-btn.active {
-            background: #FFD700;
-            color: #000;
+        .translate.show {
+            display: block;
+        }
+
+        .btn-lang {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            border: 1px solid #b91c1c;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-lang.active {
+            background-color: #b91c1c;
+            color: white;
+        }
+
+        .weapon-img {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 0 auto 1rem;
+            transition: transform 0.5s;
+        }
+
+        .weapon-buttons button {
+            margin: 0.5rem;
         }
     </style>
 </head>
 
 <body class="p-10 bg-gray-100">
 
-    <div class="flex justify-end mb-6 gap-2">
-        <div class="lang-btn" id="btnZh">中</div>
-        <div class="lang-btn" id="btnEn">EN</div>
-    </div>
+    <div class="max-w-4xl mx-auto">
+        <div class="text-right mb-6">
+            <span class="btn-lang active" id="btnZh">中文</span>
+            <span class="btn-lang" id="btnEn">English</span>
+        </div>
 
-    <!-- 中文内容 -->
-    <div data-lang="zh">
         <h1 class="text-3xl font-bold mb-6">数智体验场</h1>
-
-        <p class="mb-8 leading-relaxed">
+        <p class="leading-relaxed mb-6">
             数智体验模块致力于将数字技术与传统武术文化相结合，
             探索沉浸式、互动式的文化体验方式。
             在信息技术快速发展的背景下，
@@ -47,24 +64,41 @@
             使用户能够以更加直观和参与性的方式接触武术文化，
             从而提升体验深度与传播效果。
         </p>
+        <p class="leading-relaxed mb-6 translate">
+            The Digital & Interactive Experience module aims to combine digital technology with traditional Chinese martial arts culture,
+            exploring immersive and interactive ways to experience culture.
+            With rapid development of information technology,
+            traditional culture dissemination is undergoing profound changes,
+            shifting from one-way presentation to multi-dimensional interaction.
+            This module introduces virtual reality, interactive design, and digital visualization,
+            enabling users to engage with martial arts culture in a more intuitive and participatory way,
+            thus enhancing both the depth of experience and the effectiveness of dissemination.
+        </p>
 
         <div class="space-y-6">
 
             <div class="bg-white p-6 rounded shadow">
-                <h2 class="text-xl font-bold mb-2">360°全景体验</h2>
+                <h2 class="text-xl font-bold mb-2">数字兵器旋转展示</h2>
                 <p class="leading-relaxed mb-4">
-                    通过嵌入360度全景展示，
-                    用户可以在虚拟空间中自由观察武术动作与场景布局，
-                    获得接近真实环境的沉浸式体验。
-                    这一技术不仅增强了视觉表现力，
-                    也为远程学习与展示提供了新的可能性。
+                    用户可以通过左右按钮旋转数字兵器图片，观察不同角度和细节，
+                    获得接近实物的沉浸式感受。
+                </p>
+                <p class="leading-relaxed mb-4 translate">
+                    Users can rotate the digital weapon images using left and right buttons,
+                    observing different angles and details,
+                    gaining an immersive experience similar to a real object.
                 </p>
 
-                <iframe width="100%" height="400" src="https://momento360.com/e/u/xxxx"></iframe>
+                <img src="images/spear1.png" alt="长枪" id="weaponImg" class="weapon-img">
+
+                <div class="weapon-buttons text-center">
+                    <button onclick="rotateWeapon(-1)" class="bg-gray-500 text-white p-2 rounded">← 左转</button>
+                    <button onclick="rotateWeapon(1)" class="bg-gray-500 text-white p-2 rounded">右转 →</button>
+                </div>
             </div>
 
             <div class="bg-white p-6 rounded shadow">
-                <h2 class="text-xl font-bold mb-2">互动式兵器展示</h2>
+                <h2 class="text-xl font-bold mb-2">互动式兵器介绍</h2>
                 <p class="leading-relaxed mb-4">
                     通过简单的交互设计，
                     用户可以点击不同兵器，
@@ -72,10 +106,23 @@
                     这一形式将静态知识转化为动态体验，
                     增强学习的趣味性与参与感。
                 </p>
+                <p class="leading-relaxed mb-4 translate">
+                    Through simple interactive design,
+                    users can click different weapons
+                    to view their historical background and usage.
+                    This approach transforms static knowledge into dynamic experience,
+                    enhancing learning interest and participation.
+                </p>
 
-                <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2">长枪</button>
-                <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2">长剑</button>
+                <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2">
+                    长枪
+                </button>
+                <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2">
+                    长剑
+                </button>
+
                 <p id="info" class="mt-4 text-gray-700"></p>
+                <p id="infoEn" class="mt-4 text-gray-700 translate"></p>
             </div>
 
         </div>
@@ -85,78 +132,25 @@
         </div>
     </div>
 
-    <!-- 英文内容 -->
-    <div data-lang="en">
-        <h1 class="text-3xl font-bold mb-6">Digital & Interactive Experience</h1>
-
-        <p class="mb-8 leading-relaxed">
-            The Digital & Interactive Experience module aims to combine digital technology with traditional Chinese martial arts culture,
-            exploring immersive and interactive ways to experience culture.
-            With rapid development of information technology,
-            traditional culture dissemination is undergoing profound changes,
-            shifting from one-way presentation to multi-dimensional interaction.
-            This module introduces virtual reality, panoramic displays, and interactive design,
-            enabling users to engage with martial arts culture in a more intuitive and participatory way,
-            thus enhancing both the depth of experience and the effectiveness of dissemination.
-        </p>
-
-        <div class="space-y-6">
-
-            <div class="bg-white p-6 rounded shadow">
-                <h2 class="text-xl font-bold mb-2">360° Panoramic Experience</h2>
-                <p class="leading-relaxed mb-4">
-                    By embedding 360-degree panoramic displays,
-                    users can freely observe martial arts movements and scene layouts in a virtual space,
-                    achieving an immersive experience close to a real environment.
-                    This technology not only enhances visual impact,
-                    but also provides new possibilities for remote learning and exhibition.
-                </p>
-
-                <iframe width="100%" height="400" src="https://momento360.com/e/u/xxxx"></iframe>
-            </div>
-
-            <div class="bg-white p-6 rounded shadow">
-                <h2 class="text-xl font-bold mb-2">Interactive Weapons Display</h2>
-                <p class="leading-relaxed mb-4">
-                    Through simple interactive design,
-                    users can click different weapons
-                    to view their historical background and usage.
-                    This approach transforms static knowledge into dynamic experience,
-                    enhancing learning interest and participation.
-                </p>
-
-                <button onclick="showInfo('spear')" class="bg-blue-500 text-white p-2 m-2">Spear</button>
-                <button onclick="showInfo('sword')" class="bg-green-500 text-white p-2 m-2">Sword</button>
-                <p id="infoEn" class="mt-4 text-gray-700"></p>
-            </div>
-
-        </div>
-
-        <div class="mt-8">
-            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium">← Back to Home</a>
-        </div>
-    </div>
-
     <script>
-        // 语言切换功能
+        // 语言切换
         const btnZh = document.getElementById('btnZh');
         const btnEn = document.getElementById('btnEn');
-        const langElements = document.querySelectorAll('[data-lang]');
 
-        function setLanguage(lang) {
-            langElements.forEach(el => {
-                el.classList.toggle('show', el.getAttribute('data-lang') === lang);
-            });
-            btnZh.classList.toggle('active', lang === 'zh');
-            btnEn.classList.toggle('active', lang === 'en');
-            localStorage.setItem('lang', lang);
+        btnZh.addEventListener('click', () => setLang('zh'));
+        btnEn.addEventListener('click', () => setLang('en'));
+
+        function setLang(lang) {
+            if (lang === 'zh') {
+                document.querySelectorAll('.translate').forEach(el => el.classList.remove('show'));
+                btnZh.classList.add('active');
+                btnEn.classList.remove('active');
+            } else {
+                document.querySelectorAll('.translate').forEach(el => el.classList.add('show'));
+                btnEn.classList.add('active');
+                btnZh.classList.remove('active');
+            }
         }
-
-        btnZh.addEventListener('click', () => setLanguage('zh'));
-        btnEn.addEventListener('click', () => setLanguage('en'));
-
-        const defaultLang = localStorage.getItem('lang') || 'zh';
-        setLanguage(defaultLang);
 
         // 互动按钮显示信息
         function showInfo(type) {
@@ -170,6 +164,22 @@
                 infoZh.innerText = "长剑象征着君子之道，强调灵动与精准，在武术体系中兼具实战与审美价值。";
                 infoEn.innerText = "The sword symbolizes the way of the gentleman, emphasizing agility and precision, with both practical and aesthetic value in martial arts.";
             }
+        }
+
+        // 数字兵器旋转模拟
+        const weaponImages = [
+            'images/spear1.png',
+            'images/spear2.png',
+            'images/spear3.png',
+            'images/spear4.png'
+        ];
+        let currentImg = 0;
+
+        function rotateWeapon(direction) {
+            currentImg += direction;
+            if (currentImg < 0) currentImg = weaponImages.length - 1;
+            if (currentImg >= weaponImages.length) currentImg = 0;
+            document.getElementById('weaponImg').src = weaponImages[currentImg];
         }
     </script>
 
