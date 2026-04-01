@@ -11,6 +11,7 @@
         body {
             font-family: sans-serif;
             background-color: #f3f4f6;
+            padding-top: 60px;
         }
 
         h1, h2 {
@@ -42,6 +43,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -64,63 +66,218 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(185, 28, 28, 0.4);
         }
+
+        /* 导航栏 */
+        #nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-blur: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #nav a {
+            margin-right: 1rem;
+            font-weight: bold;
+            color: #b91c1c;
+        }
+
+        #nav a:hover {
+            color: #7f1d1d;
+        }
+
+        /* 语言按钮 */
+        .lang-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #b91c1c;
+        }
+
+        .lang-btn.active {
+            background: #b91c1c;
+            color: #fff;
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].show {
+            display: block;
+        }
     </style>
 </head>
 
 <body class="p-10">
 
+    <!-- 导航栏 -->
+    <nav id="nav">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-red-700 font-bold text-lg font-['ZCOOL_KuaiLe']">文化挖掘库</a>
+            <div class="flex items-center gap-4">
+                <a href="index.html">首页</a>
+                <a href="educational.html">教育</a>
+                <a href="culture.html">文化</a>
+                <a href="contact.html">联系</a>
+                <div class="flex gap-1">
+                    <div class="lang-btn" id="btnZh">中</div>
+                    <div class="lang-btn" id="btnEn">EN</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold mb-8 text-center text-red-700">十八般武艺</h1>
 
-        <div class="space-y-6">
-            <div class="card animate-fade-in" style="animation-delay: 0s;">
-                <p class="leading-relaxed mb-6">
-                    “十八般武艺”是中国武术的一个传统术语，也称“十八般兵器”、“十八般武器”，常见于中国古代的戏曲、小说中，指使用各种武术器械的功夫和技能。其内容和形式十分丰富，在很大程度上反映了那个时代武艺发展的面貌。现代人对“十八般武艺”的理解是泛指多种武器，或多种技能。2011年5月23日，十八般武艺经国务院批准列入第三批国家级非物质文化遗产名录。
-                </p>
+        <!-- 中文内容 -->
+        <div data-lang="zh">
+            <h1 class="text-4xl font-bold mb-8 text-center text-red-700">十八般武艺</h1>
 
-                <h2 class="text-2xl font-bold mb-4 text-red-700">历史演变</h2>
-                <p class="leading-relaxed mb-4">
-                    “十八般武艺”作为军事术语出现在兵书上，始见于南宋华岳撰《翠微北征录》。该书卷七记 “武艺一十有八，而弓为第一”，但没有给出“十八般武艺”的具体内容。
-                </p>
-                <p class="leading-relaxed mb-4">
-                   元末明初，明代施耐庵《水浒传》第二回中：“史进每日求王教头点拨十八般武艺，一一从头指教。那十八般武艺？矛锤弓弩铳，鞭锏剑链挝，斧钺并戈戟，牌棒与枪杈。”
-                </p>
-                <p class="leading-relaxed mb-4">
-                    明代后期万历年间，“十八般武艺”的具体内容又有了新的表述：“一弓、二弩、三枪、四刀、五剑、六矛、七盾、八斧、九钺、十戟、十一鞭、十二锏、十三镐、十四殳、十五叉、十六钯头、十七绵绳套索、十八白打”。“白打”即徒手搏击，拳术在武术练习中历来受到人们重视。
-                </p>
-                <p class="leading-relaxed mb-6">
-                    自此以后，十八般武艺所指的内容虽有所变化，但基本上与此大同小异。
-                </p>
+            <div class="space-y-6">
+                <div class="card animate-fade-in" style="animation-delay: 0s;">
+                    <p class="leading-relaxed mb-6">
+                        “十八般武艺”是中国武术的一个传统术语，也称“十八般兵器”、“十八般武器”，常见于中国古代的戏曲、小说中，指使用各种武术器械的功夫和技能。其内容和形式十分丰富，在很大程度上反映了那个时代武艺发展的面貌。现代人对“十八般武艺”的理解是泛指多种武器，或多种技能。2011年5月23日，十八般武艺经国务院批准列入第三批国家级非物质文化遗产名录。
+                    </p>
 
-                <h2 class="text-2xl font-bold mb-4 text-red-700">主要内容</h2>
-                <p class="leading-relaxed mb-4">
-                    自清代以来，“十八般武艺”主要有四种说法，其中流传最广的是：
-                </p>
-                <ol class="list-decimal list-inside space-y-2 mb-6">
-                    <li>指“刀、枪、剑、戟、鎲、棍、叉、耙、鞭、锏、锤、斧、钩、镰、扒、拐、弓箭、藤牌”。</li>
-                    <li>与排列相同，唯后三件变为：代、抉、弓矢。</li>
-                    <li>指“九长九短”。九长为枪、戟、棍、钺、叉、鎲、钩、槊、环；九短为刀、剑、拐、斧、鞭、锏、锤、棒、杵。这种列法，远射兵器的弓矢和防御武器的牌或藤牌消失，也是近代练武者不善习弓矢，只教套路的反映。
-                    </li>
-                    <li>指近代戏曲界有人称之为刀、枪、剑、戟、斧、钺、钩、叉、鞭、锏、锤、抓、镗、棍、槊、棒、拐、流星锤等18种兵器。这也是为今天大多数人所接受的一种排列方法。</li>
-                </ol>
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">历史演变</h2>
+                    <p class="leading-relaxed mb-4">
+                        “十八般武艺”作为军事术语出现在兵书上，始见于南宋华岳撰《翠微北征录》。该书卷七记 “武艺一十有八，而弓为第一”，但没有给出“十八般武艺”的具体内容。
+                    </p>
+                    <p class="leading-relaxed mb-4">
+                        元末明初，明代施耐庵《水浒传》第二回中：“史进每日求王教头点拨十八般武艺，一一从头指教。那十八般武艺？矛锤弓弩铳，鞭锏剑链挝，斧钺并戈戟，牌棒与枪杈。”
+                    </p>
+                    <p class="leading-relaxed mb-4">
+                        明代后期万历年间，“十八般武艺”的具体内容又有了新的表述：“一弓、二弩、三枪、四刀、五剑、六矛、七盾、八斧、九钺、十戟、十一鞭、十二锏、十三镐、十四殳、十五叉、十六钯头、十七绵绳套索、十八白打”。“白打”即徒手搏击，拳术在武术练习中历来受到人们重视。
+                    </p>
+                    <p class="leading-relaxed mb-6">
+                        自此以后，十八般武艺所指的内容虽有所变化，但基本上与此大同小异。
+                    </p>
 
-                <h2 class="text-2xl font-bold mb-4 text-red-700">文化意义</h2>
-                <p class="leading-relaxed mb-6">
-                    由此可见，所谓“十八般”，并非仅仅局限于十八种兵器，而是古代多种武艺的概说。实际上，冷兵器时代产生了许多武器，其数目远远超过了“十八般”。晚清和民国时期，“十八般兵器”成为各个武馆的必须陈设，而成为中国武术和武馆的象征之一。作为国家级非物质文化遗产，十八般武艺不仅是中国古代军事智慧和工艺水平的体现，更是中华民族尚武精神和文化传承的重要载体。
-                </p>
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">主要内容</h2>
+                    <p class="leading-relaxed mb-4">
+                        自清代以来，“十八般武艺”主要有四种说法，其中流传最广的是：
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 mb-6">
+                        <li>指“刀、枪、剑、戟、鎲、棍、叉、耙、鞭、锏、锤、斧、钩、镰、扒、拐、弓箭、藤牌”。</li>
+                        <li>与排列相同，唯后三件变为：代、抉、弓矢。</li>
+                        <li>指“九长九短”。九长为枪、戟、棍、钺、叉、鎲、钩、槊、环；九短为刀、剑、拐、斧、鞭、锏、锤、棒、杵。这种列法，远射兵器的弓矢和防御武器的牌或藤牌消失，也是近代练武者不善习弓矢，只教套路的反映。
+                        </li>
+                        <li>指近代戏曲界有人称之为刀、枪、剑、戟、斧、钺、钩、叉、鞭、锏、锤、抓、镗、棍、槊、棒、拐、流星锤等18种兵器。这也是为今天大多数人所接受的一种排列方法。</li>
+                    </ol>
 
-                <!-- 插入两张十八般武艺的图片 -->
-                <div class="grid gap-6">
-                    <img src="https://aka.doubaocdn.com/s/g8ZW1wIgtM" alt="十八般武艺兵器图" class="rounded shadow w-full">
-                    <img src="https://aka.doubaocdn.com/s/IdRb1wIgtM" alt="十八般武艺图谱" class="rounded shadow w-full">
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">文化意义</h2>
+                    <p class="leading-relaxed mb-6">
+                        由此可见，所谓“十八般”，并非仅仅局限于十八种兵器，而是古代多种武艺的概说。实际上，冷兵器时代产生了许多武器，其数目远远超过了“十八般”。晚清和民国时期，“十八般兵器”成为各个武馆的必须陈设，而成为中国武术和武馆的象征之一。作为国家级非物质文化遗产，十八般武艺不仅是中国古代军事智慧和工艺水平的体现，更是中华民族尚武精神和文化传承的重要载体。
+                    </p>
+
+                    <div class="grid gap-6">
+                        <img src="https://aka.doubaocdn.com/s/g8ZW1wIgtM" alt="十八般武艺兵器图" class="rounded shadow w-full">
+                        <img src="https://aka.doubaocdn.com/s/IdRb1wIgtM" alt="十八般武艺图谱" class="rounded shadow w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 英文内容 -->
+        <div data-lang="en">
+            <h1 class="text-4xl font-bold mb-8 text-center text-red-700">Shíbā Bān Wǔyì (Eighteen Weapons Skills)</h1>
+
+            <div class="space-y-6">
+                <div class="card animate-fade-in" style="animation-delay: 0s;">
+                    <p class="leading-relaxed mb-6">
+                        "Shíbā Bān Wǔyì" (Eighteen Weapons Skills) is a traditional term in Chinese martial arts, also called "Eighteen Weapons". It is commonly mentioned in ancient Chinese operas and novels, referring to proficiency in various martial weapons and skills. Its forms and content are rich, reflecting the development of martial arts in that era. Today, it generally refers to proficiency in multiple weapons or skills. On May 23, 2011, it was listed as a national intangible cultural heritage.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">History</h2>
+                    <p class="leading-relaxed mb-4">
+                        The term first appeared in military texts, recorded in the Southern Song Dynasty book <i>Cuiwei Beizheng Lu</i> by Hua Yue. Volume 7 states “There are eighteen skills, and the bow is first,” but it did not list the specific eighteen skills.
+                    </p>
+                    <p class="leading-relaxed mb-4">
+                        During the late Yuan and early Ming, in <i>Water Margin</i> by Shi Nai'an, it is written: “Shi Jin seeks guidance on the eighteen skills every day. The eighteen skills? Spears, hammers, bows, crossbows, firearms, whips, clubs, swords...” (listing multiple weapons)
+                    </p>
+                    <p class="leading-relaxed mb-4">
+                        In the late Ming (Wanli era), the specific content was updated to a list including bows, crossbows, spears, knives, swords, shields, axes, maces, etc., and the last skill "baiting" refers to unarmed combat, emphasizing the importance of fist techniques.
+                    </p>
+                    <p class="leading-relaxed mb-6">
+                        Since then, the content referred to by "Eighteen Skills" has varied slightly, but the essence remains.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">Main Skills</h2>
+                    <p class="leading-relaxed mb-4">
+                        Since the Qing Dynasty, there have been four main versions, the most widely accepted is:
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 mb-6">
+                        <li>Knife, spear, sword, halberd, mace, staff, fork, rake, whip, club, hammer, axe, hook, sickle, shovel, crutch, bow & arrow, rattan shield.</li>
+                        <li>Similar order, last three replaced by: dai, jue, bow & arrow.</li>
+                        <li>"Nine long and nine short": long weapons—spear, halberd, staff, etc.; short weapons—knife, sword, axe, etc.</li>
+                        <li>Modern opera version lists eighteen weapons including spear, sword, club, flail, etc., widely accepted today.</li>
+                    </ol>
+
+                    <h2 class="text-2xl font-bold mb-4 text-red-700">Cultural Significance</h2>
+                    <p class="leading-relaxed mb-6">
+                        "Eighteen" does not literally mean only eighteen weapons, but a summary of various martial skills. In the late Qing and Republican era, they were displayed in martial arts schools as symbols of Chinese martial arts. As a national intangible cultural heritage, it represents ancient military wisdom, craftsmanship, and the martial spirit of the Chinese nation.
+                    </p>
+
+                    <div class="grid gap-6">
+                        <img src="https://aka.doubaocdn.com/s/g8ZW1wIgtM" alt="Eighteen Weapons" class="rounded shadow w-full">
+                        <img src="https://aka.doubaocdn.com/s/IdRb1wIgtM" alt="Eighteen Weapons Chart" class="rounded shadow w-full">
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="mt-10 text-center">
-            <a href="culture.html" class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors">← 返回文化挖掘库</a>
+            <a href="culture.html"
+               class="btn-return inline-block bg-red-700 text-white px-6 py-3 rounded-lg hover:bg-red-900 font-medium transition-colors"
+               data-text-zh="← 返回文化挖掘库"
+               data-text-en="← Back to Cultural Excavation Library">
+               ← 返回文化挖掘库
+            </a>
         </div>
     </div>
+
+    <script>
+        const btnZh = document.getElementById('btnZh');
+        const btnEn = document.getElementById('btnEn');
+        const returnBtn = document.querySelector('.btn-return');
+        const langElements = document.querySelectorAll('[data-lang]');
+        const nav = document.getElementById('nav');
+
+        function setLanguage(lang) {
+            langElements.forEach(el => {
+                el.classList.toggle('show', el.getAttribute('data-lang') === lang);
+            });
+
+            btnZh.classList.toggle('active', lang === 'zh');
+            btnEn.classList.toggle('active', lang === 'en');
+
+            if (returnBtn) {
+                returnBtn.textContent = returnBtn.getAttribute(`data-text-${lang}`);
+            }
+
+            localStorage.setItem('lang', lang);
+        }
+
+        btnZh.addEventListener('click', () => setLanguage('zh'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
+
+        const defaultLang = localStorage.getItem('lang') || 'zh';
+        setLanguage(defaultLang);
+
+        // 滚动显示导航栏
+        window.addEventListener('scroll', () => {
+            nav.style.opacity = window.scrollY > 50 ? '1' : '0';
+        });
+    </script>
 
 </body>
 
