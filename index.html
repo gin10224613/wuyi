@@ -183,8 +183,21 @@
 
     <!-- 英文内容 -->
     <div data-lang="en">
-        <section class="relative text-center py-32 bg-cover bg-center" style="background-image:url('images/banner.jpg')">
-            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <section class="relative h-[500px] overflow-hidden">
+
+    <!-- 背景视频 -->
+    <video 
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay 
+        muted 
+        loop 
+        playsinline>
+        <source src="banner.mp4" type="video/mp4">
+    </video>
+
+    <!-- 遮罩 -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            
             <div class="relative z-10 px-4">
                 <h2 class="banner-title text-5xl font-bold text-yellow-400">Martial Culture Across the World</h2>
                 <p class="banner-text text-white mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
