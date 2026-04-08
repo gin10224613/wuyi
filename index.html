@@ -86,22 +86,23 @@
 
     <!-- 中文内容 -->
     <div data-lang="zh">
-        <section class="relative h-[500px] flex">
+        <section class="relative h-[500px] overflow-hidden">
 
-    <!-- 左图 -->
-    <div class="w-1/2 h-full bg-cover bg-center"
-        style="background-image:url('banner1.png')">
-    </div>
+    <!-- 背景视频 -->
+    <video 
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay 
+        muted 
+        loop 
+        playsinline>
+        <source src="banner.mp4" type="video/mp4">
+    </video>
 
-    <!-- 右图 -->
-    <div class="w-1/2 h-full bg-cover bg-center"
-        style="background-image:url('banner2.png')">
-    </div>
+    <!-- 遮罩 -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
-    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/70"></div>
-
-    <!-- 文字层 -->
-    <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
+    <!-- 文字 -->
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
         <h2 class="banner-title text-5xl font-bold text-yellow-400">
             武韵传四海
         </h2>
@@ -109,9 +110,6 @@
             “武韵传四海”项目立足中华优秀传统文化，以中国武术这一兼具身体实践与精神内涵的文化形态为核心载体，
             融合文化挖掘、教育创新、艺术表达与数字传播等多维路径，
             构建一个跨学科、跨媒介、跨文化的综合传播平台。
-            项目不仅关注武术作为“技艺”的传承，更强调其背后所蕴含的哲学思想、价值观念与审美精神，
-            通过系统化梳理与数字化呈现，使传统文化在当代语境中焕发新的生命力，
-            并在全球范围内实现更加多元、立体且可持续的传播。
         </p>
     </div>
 
